@@ -9,4 +9,4 @@ cd $(dirname "$0")/..
 
 # ./scripts/run-sitebuilder.sh
 
-docker build -t $IMAGE_NAME -f Docker/Dockerfile .
+docker build -t $IMAGE_NAME -f Dockerfile .
