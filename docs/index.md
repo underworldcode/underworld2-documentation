@@ -2,9 +2,11 @@
 title: Underworld
 ---
 
-Stokes:
+Area of a circle:
 
-$$ \pi r^2 $$
+$$
+\pi r^2
+$$
 
 Random code
 
