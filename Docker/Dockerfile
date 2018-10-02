@@ -40,6 +40,12 @@ RUN mv /workspace/tutorials    Notebooks
 
 RUN ./scripts/run-sitebuilder
 
+## Set config options 
+RUN rm -rf .jupyter || true
+RUN mkdir  .jupyter
+ADD jupyter_notebook_config.py .jupyter/jupyter_notebook_config.py
+
+
 # Launch the notebook server from the Notebook directory
 # but perhaps there is something else that would do this.
 
