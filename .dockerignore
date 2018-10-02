@@ -1,0 +1,6 @@
+.DS_Store
+_site
+.ipynb_checkpoints
+
+# Site build (dockerfile needs to build this)
+www

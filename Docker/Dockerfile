@@ -1,33 +1,31 @@
-FROM lmoresi/unimelb-debian-base:v1.04
+# The existing docker image should be deployable on binder - we just need
+# to copy the content across to the $HOME directory ... see
+# https://mybinder.readthedocs.io/en/latest/dockerfile.html#when-should-you-use-a-dockerfile
+# for details
 
-## =============================================================
-## base - image ... whatever functionality you want to provide !
-## This is my unix / python stuff (but it doesn't have underworld)
-##
-## This dockerfile builds an image from this content, and serves the
-## sample web pages and notebooks at port 8080
-##
-## docker run -p 8181:8080 --name="docker-web-notebooks-test" -t lmoresi/lmoresi/docker-web-notebooks-module
-## and then browse the docker VM ip address on port 8181 (for example)
-##
-## OR just use kitematic and click on the preview image
-##
-## =============================================================
+# SHA tagging of the publication version
+FROM underworldcode/underworld2:2.6.0b
 
-## Grab (this) content from github
+ENV NB_USER jovyan
+ENV NB_UID 1000
+ENV HOME /home/${NB_USER}
 
-# RUN git clone https://github.com/lmoresi/docker-web-notebook-server.git /demonstration/ # Watch the cache !
+# We have to do some manipulation as the root user to begin with.
 
+USER root
 
-## Link your content to the "Content" directory at the root level of this module
-## If you don't have any content then use the example content !!
+RUN pip install mkdocs \
+                mkdocs-material \
+                pygments \
+                pymdown-extensions
 
-RUN pip install mkdocs
+WORKDIR /home/jovyan
 
-RUN mkdir /demonstration
-WORKDIR /demonstration
 
 ## These are the build templates etc
+
+RUN echo "break cache numero 2"
+
 ADD docs docs
 ADD jupyter-server-theme jupyter-server-theme
 ADD Notebooks Notebooks
@@ -36,24 +34,14 @@ ADD mkdocs.yml mkdocs.yml
 
 ## Update the ruby dependencies and build the site
 
-
 RUN ./scripts/run-sitebuilder
-
-# Create a non-privileged user to run the notebooks and switch to this user for the server
-
-RUN useradd --create-home --home-dir /home/demon --shell /bin/bash --user-group demon
-RUN chown -R demon:demon /demonstration
-
-USER demon
-ENV HOME=/demonstration
-ENV SHELL=/bin/bash
-ENV USER=demon
 
 # Launch the notebook server from the Notebook directory
 # but perhaps there is something else that would do this.
 
-WORKDIR /demonstration
-EXPOSE 8080
+USER jovyan
+
+EXPOSE 8888
 ENTRYPOINT ["/usr/local/bin/tini", "--"]
 
-CMD scripts/run-jupyter -p 8080
+CMD scripts/run-jupyter -p 8888

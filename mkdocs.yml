@@ -1,4 +1,4 @@
-site_name: Literate Programming & Docker
+site_name: Underworld — Geodynamics Modelling Code
 site_author: Louis Moresi
 site_dir: www
 
@@ -7,12 +7,20 @@ site_dir: www
 #  The hierarchy of the list describes how these pages will be represented in the navigation
 #  bar at the top of the page. Either as individual links or as a dropdown menu of links
 
-pages:
-- index.md
-- Map.md
+nav:
+- Home:
+    - index.md
+- Site Map:
+    - Map.md
 - About:
     - 'How to write a new page' : WritingContent.md
     - 'Installation instructions' : Instructions.md
+
+- Notebooks:
+    - "/notebooks/"
+- Terminal:
+    - "/terminals/1"
+
 
 ## Here is how to add extra (usually external) links to the navigation bar
 #
@@ -25,16 +33,18 @@ pages:
 #
 
 
-extra:
-    nav_links:
-        - ["Live Content",
-            ["Notebooks", "/notebooks/Notebooks" ],
-            ["Terminal", "/terminals/1" ]
-          ]
-        - [ "Source Code",
-            ["Local", "/notebooks/docs"],
-            ["Github", "https://github.com/lmoresi/notebook-web-template"]
-          ]
+# extra:
+#     nav_links:
+#         - ["Live Content",
+#             ["Notebooks", "/notebooks/Notebooks" ],
+#             ["Terminal", "/terminals/1" ]
+#           ]
+#         - [ "Source Code",
+#             ["Local", "/notebooks/docs"],
+#             ["Github", "https://github.com/underworldcode/underworld2"]
+#           ]
+#
+#
 
 
 
@@ -43,10 +53,24 @@ extra:
 #
 #  Some of these options are not intuitive so take care !
 
-# theme over-ride
 
-theme_dir: jupyter-server-theme
-theme: flatly
+
+theme:
+  name: material
+  feature:
+    tabs: true
+
+repo_name: 'underworld2 on Github'
+repo_url: 'https://github.com/underworldcode/underworld2'
+edit_uri: "" ## don't edit these docs online
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/underworldcode'
+    - type: 'twitter'
+      link: 'https://twitter.com/underworldcode'
+
 
 # Layout of pages
 
@@ -57,3 +81,24 @@ use_directory_urls: False
 extra_javascript:
   - http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   - js/mathjax-local-config.js
+
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  # - pymdownx.emoji:
+  #     emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  # - pymdownx.magiclink
+  - pymdownx.mark
+  # - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde

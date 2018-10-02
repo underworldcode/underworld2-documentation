@@ -1,6 +1,11 @@
 ---
-title: Introduction
+title: Underworld
 ---
+
+Stokes:
+
+$$ \pi r^2 $$
+
 
 _This is a collection of tools to set up a web server in a docker container that mixes static html content and dynamic "literate-programming" content via jupyter notebooks._
 
@@ -13,6 +18,7 @@ _This is a collection of tools to set up a web server in a docker container that
 These characteristics of Docker allow us to create complex software bundles and focus on the explanation of how they work, demonstrate the in-built algorithms, and provide tutorials that can be reused on new problems. We think this opens many doors for teaching basic computational methods as well as documenting technical software.
 
 Under Windows and Macintosh, you can use the [Kitematic gui](https://kitematic.com) to locate, download and run docker images. I'm assuming this is how you are viewing this content as the gui / plug-and-play aspect of docker and kitematic is the whole point !
+
 
 # What have we here ?
 
