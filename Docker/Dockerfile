@@ -32,6 +32,10 @@ ADD Notebooks Notebooks
 ADD scripts scripts
 ADD mkdocs.yml mkdocs.yml
 
+RUN mv /workspace/user_guide   Notebooks
+RUN mv /workspace/publications Notebooks
+RUN mv /workspace/tutorials    Notebooks
+
 ## Update the ruby dependencies and build the site
 
 RUN ./scripts/run-sitebuilder

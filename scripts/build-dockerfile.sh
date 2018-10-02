@@ -7,4 +7,6 @@ cd $(dirname "$0")/..
 
 # One shot build in cwd
 
+# ./scripts/run-sitebuilder.sh
+
 docker build -t $IMAGE_NAME -f Docker/Dockerfile .
