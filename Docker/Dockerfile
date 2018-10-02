@@ -12,6 +12,8 @@ ENV HOME /home/${NB_USER}
 
 # We have to do some manipulation as the root user to begin with.
 
+RUN echo "break cache numero x"
+
 USER root
 
 RUN pip install mkdocs \
@@ -21,10 +23,8 @@ RUN pip install mkdocs \
 
 WORKDIR /home/jovyan
 
-
 ## These are the build templates etc
 
-RUN echo "break cache numero 3"
 
 ADD docs docs
 ADD jupyter-server-theme jupyter-server-theme
@@ -39,7 +39,9 @@ RUN ./scripts/run-sitebuilder
 # Launch the notebook server from the Notebook directory
 # but perhaps there is something else that would do this.
 
+RUN chown -R ${NB_UID} ${HOME}
 USER jovyan
+
 
 EXPOSE 8888
 ENTRYPOINT ["/usr/local/bin/tini", "--"]
