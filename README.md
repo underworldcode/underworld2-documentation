@@ -8,3 +8,6 @@ container that mixes static html content and dynamic
 It uses `mkdocs` to build / manage the static content.
 
 The Dockerfiles tell you how to build a suitable image.
+
+
+https://mybinder.org/v2/gh/lmoresi/uw-docker-landing-page/master
