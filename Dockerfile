@@ -27,7 +27,6 @@ WORKDIR /home/jovyan
 
 
 ADD docs docs
-ADD jupyter-server-theme jupyter-server-theme
 ADD scripts scripts
 ADD mkdocs.yml mkdocs.yml
 RUN ./scripts/run-sitebuilder
