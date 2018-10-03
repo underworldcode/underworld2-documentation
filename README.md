@@ -12,7 +12,7 @@ The Dockerfiles tell you how to build a suitable image.
 
 https://mybinder.org/v2/gh/lmoresi/uw-docker-landing-page/master
 
-
+https://mybinder.org/v2/gh/lmoresi/uw-docker-landing-page/master?filepath=index.ipynb
 
 ```python
   import os
