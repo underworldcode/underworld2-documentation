@@ -17,10 +17,9 @@ nav:
     - 'Installation instructions' : Instructions.md
 
 - Notebooks:
-    - "/notebooks/"
+    - "../../notebooks/"
 - Terminal:
     - "/terminals/1"
-
 
 
 ## No need to change these config options unless you want to change the theme or the

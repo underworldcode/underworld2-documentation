@@ -11,3 +11,10 @@ The Dockerfiles tell you how to build a suitable image.
 
 
 https://mybinder.org/v2/gh/lmoresi/uw-docker-landing-page/master
+
+
+
+```python
+  import os
+  print os.environ['JUPYTERHUB_SERVICE_PREFIX']
+```
