@@ -21,6 +21,8 @@ RUN pip install mkdocs \
                 pygments \
                 pymdown-extensions
 
+RUN pip install --upgrade jupyter
+
 WORKDIR /home/jovyan
 
 ## These are the build templates etc
@@ -31,10 +33,14 @@ ADD scripts scripts
 ADD mkdocs.yml mkdocs.yml
 RUN ./scripts/run-sitebuilder
 
-ADD Notebooks www/Notebooks
+# ADD Notebooks www/Notebooks
 RUN mv /workspace/user_guide   www/Notebooks
 RUN mv /workspace/publications www/Notebooks
 RUN mv /workspace/tutorials    www/Notebooks
+
+# Trust underworld notebooks
+RUN find www -name \*.ipynb  -print0 | xargs -0 jupyter trust  || true
+
 
 ## Update the ruby dependencies and build the site
 

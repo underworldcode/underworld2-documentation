@@ -9,7 +9,7 @@ site_dir: www
 
 nav:
 - Home:
-    - index.md
+    - Home.md
 - Site Map:
     - Map.md
 - About:
@@ -17,7 +17,7 @@ nav:
     - 'Installation instructions' : Instructions.md
 
 - Notebooks:
-    - "../../notebooks/"
+    - "../../tree/Notebooks"
 - Terminal:
     - "/terminals/1"
 

@@ -10,7 +10,12 @@ cd www
 # We want to start the server from the _site directory
 # where everything was built by the docker-site-builder script
 
-jupyter-notebook --port=8888 --ip="*" --no-browser --NotebookApp.token="" # --NotebookApp.default_url="/files/index.html"
+
+echo $JUPYTERHUB_SERVICE_PREFIX
+
+jupyter-notebook --port=8888 --ip="*" --no-browser --NotebookApp.token="" \
+                 --NotebookApp.allow_remote_access=True \
+                 --NotebookApp.allow_origin="*" # --NotebookApp.default_url="/files/Home.html"
 
 # Don't exit
 
