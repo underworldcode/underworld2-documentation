@@ -28,19 +28,19 @@ WORKDIR /home/jovyan
 
 ADD docs docs
 ADD jupyter-server-theme jupyter-server-theme
-ADD Notebooks Notebooks
 ADD scripts scripts
 ADD mkdocs.yml mkdocs.yml
+RUN ./scripts/run-sitebuilder
 
-RUN mv /workspace/user_guide   Notebooks
-RUN mv /workspace/publications Notebooks
-RUN mv /workspace/tutorials    Notebooks
+ADD Notebooks www/Notebooks
+RUN mv /workspace/user_guide   www/Notebooks
+RUN mv /workspace/publications www/Notebooks
+RUN mv /workspace/tutorials    www/Notebooks
 
 ## Update the ruby dependencies and build the site
 
-RUN ./scripts/run-sitebuilder
 
-## Set config options 
+## Set config options
 RUN rm -rf .jupyter || true
 RUN mkdir  .jupyter
 ADD jupyter_notebook_config.py .jupyter/jupyter_notebook_config.py
