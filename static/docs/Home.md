@@ -20,19 +20,9 @@ def bubble_sort(items):
 ```
 
 
-[../notebooks/Notebooks/StartHere.ipynb](../notebooks/Notebooks/StartHere.ipynb)
+<iframe src="http://nbviewer.ipython.org/github/sharmak/python/blob/master/concepts/Static_Vs_Class_Method.ipynb" width="100%" height="500" scrolling="yes">
 
-[../../notebooks/Notebooks/StartHere.ipynb](../../notebooks/Notebooks/StartHere.ipynb)
-
-[/notebooks/Notebooks/StartHere.ipynb](/notebooks/Notebooks/StartHere.ipynb)
-
-
-[/tree/Notebooks/StartHere.ipynb](/tree/Notebooks/StartHere.ipynb)
-
-[../tree/Notebooks/StartHere.ipynb](../tree/Notebooks/StartHere.ipynb)
-
-[../../tree/Notebooks/StartHere.ipynb](../../tree/Notebooks/StartHere.ipynb)
-
+</iframe>
 
 _This is a collection of tools to set up a web server in a docker container that mixes static html content and dynamic "literate-programming" content via jupyter notebooks._
 

@@ -17,7 +17,7 @@ nav:
     - 'Installation instructions' : Instructions.md
 
 - Notebooks:
-    - "../../tree/Notebooks"
+    - "/tree/Notebooks"
 - Terminal:
     - "/terminals/1"
 

@@ -15,7 +15,8 @@ echo $JUPYTERHUB_SERVICE_PREFIX
 
 jupyter-notebook --port=8888 --ip="*" --no-browser --NotebookApp.token="" \
                  --NotebookApp.allow_remote_access=True \
-                 --NotebookApp.allow_origin="*" --NotebookApp.default_url="$JUPYTERHUB_SERVICE_PREFIX"
+                 --NotebookApp.disable_check_xsrf=True \
+                 --NotebookApp.allow_origin="*" --NotebookApp.default_url="$JUPYTERHUB_SERVICE_PREFIX/tree"
 
 # Don't exit
 

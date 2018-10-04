@@ -1,0 +1,25 @@
+{
+  "Cell": {
+    "cm_config": {
+      "lineNumbers": false
+    }
+  }, 
+  "load_extensions": {
+    "zenmode/main": false, 
+    "nbextensions_configurator/config_menu/main": true, 
+    "init_cell/main": true, 
+    "codefolding/main": true, 
+    "hide_header/main": true, 
+    "hide_input/main": true, 
+    "rubberband/main": false, 
+    "skip-traceback/main": true, 
+    "freeze/main": true, 
+    "exercise/main": false, 
+    "contrib_nbextensions_help_item/main": true
+  }, 
+  "Notebook": {
+    "Header": true, 
+    "Toolbar": true
+  }, 
+  "zenmode_use_builtin_backgrounds": false
+}

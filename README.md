@@ -18,3 +18,6 @@ https://mybinder.org/v2/gh/lmoresi/uw-docker-landing-page/master?filepath=index.
   import os
   print os.environ['JUPYTERHUB_SERVICE_PREFIX']
 ```
+
+
+/usr/bin/python/usr/local/bin/jupyter-notebook--ip=0.0.0.0--port=8888--NotebookApp.base_url=/user/lmoresi-uw-docker-landing-page-fr2c4att/--NotebookApp.token=_D8ff0AySOuU3DZy-yNdow--NotebookApp.trust_xheaders=True--NotebookApp.allow_origin=*jovyan@jupyter-lmoresi-2duw-2ddocker-2dlanding-2dpage-2dfr2c4att:~/www$
