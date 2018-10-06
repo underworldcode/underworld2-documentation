@@ -21,25 +21,28 @@ RUN pip install mkdocs \
                 pygments \
                 pymdown-extensions
 
-RUN pip install --upgrade jupyter
+RUN pip install --upgrade jupyter \
+                jupyter_contrib_nbextensions
+
+RUN jupyter contrib nbextension install --system
 
 WORKDIR /home/jovyan
 
 ## These are the build templates etc
 
-
-ADD docs docs
+ADD static static
 ADD scripts scripts
-ADD mkdocs.yml mkdocs.yml
-RUN ./scripts/run-sitebuilder
+# RUN ./scripts/run-sitebuilder
 
-# ADD Notebooks www/Notebooks
-RUN mv /workspace/user_guide   www/Notebooks
-RUN mv /workspace/publications www/Notebooks
-RUN mv /workspace/tutorials    www/Notebooks
 
+ADD notebooks notebooks
+# RUN mv /workspace/user_guide   www/Notebooks
+# RUN mv /workspace/publications www/Notebooks
+# RUN mv /workspace/tutorials    www/Notebooks
+#
 # Trust underworld notebooks
-RUN find www -name \*.ipynb  -print0 | xargs -0 jupyter trust  || true
+
+RUN find notebooks -name \*.ipynb  -print0 | xargs -0 jupyter trust  || true
 
 
 ## Update the ruby dependencies and build the site
@@ -47,9 +50,7 @@ RUN find www -name \*.ipynb  -print0 | xargs -0 jupyter trust  || true
 
 ## Set config options
 RUN rm -rf .jupyter || true
-RUN mkdir  .jupyter
-ADD jupyter_notebook_config.py .jupyter/jupyter_notebook_config.py
-
+ADD resources/jupyter-config .jupyter
 
 # Launch the notebook server from the Notebook directory
 # but perhaps there is something else that would do this.
@@ -61,4 +62,4 @@ USER jovyan
 EXPOSE 8888
 ENTRYPOINT ["/usr/local/bin/tini", "--"]
 
-CMD scripts/run-jupyter -p 8888
+CMD /home/jovyan/scripts/run-jupyter.sh -p 8888

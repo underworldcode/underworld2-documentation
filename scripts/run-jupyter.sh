@@ -5,7 +5,7 @@
 
 set -e
 cd $(dirname "$0")/..
-cd www
+cd notebooks
 
 # We want to start the server from the _site directory
 # where everything was built by the docker-site-builder script
@@ -16,7 +16,9 @@ echo $JUPYTERHUB_SERVICE_PREFIX
 jupyter-notebook --port=8888 --ip="*" --no-browser --NotebookApp.token="" \
                  --NotebookApp.allow_remote_access=True \
                  --NotebookApp.disable_check_xsrf=True \
-                 --NotebookApp.allow_origin="*" --NotebookApp.default_url="$JUPYTERHUB_SERVICE_PREFIX/tree"
+                 --NotebookApp.allow_origin="*" \
+                 --NotebookApp.default_url="/tree/Underworld_Introduction.ipynb"
+                 # --NotebookApp.default_url="$JUPYTERHUB_SERVICE_PREFIX/tree"
 
 # Don't exit
 
