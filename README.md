@@ -3,3 +3,5 @@
 In a github repository accessible to mybinder and nbviewer.
 
 View the documentation on [mybinder.org](https://mybinder.org/v2/gh/underworldcode/underworld2-documentation/master)
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/underworldcode/underworld2-documentation/master)
