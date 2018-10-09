@@ -26,7 +26,7 @@ def bubble_sort(items):
 ```
 
 
-This is version {{ uw.version }}
+This is version {{ uw.version }} - are the macros active ?
 
 {{uw.gh_code}}
 
