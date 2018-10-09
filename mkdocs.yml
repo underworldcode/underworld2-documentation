@@ -71,7 +71,6 @@ extra_javascript:
 plugins:
    - search
    - macros
-   - unknown
 
 markdown_extensions:
   - admonition
