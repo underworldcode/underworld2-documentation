@@ -35,7 +35,7 @@ This is version {{ uw.version }}
 <iframe src="{{uw.gh_render_doc}}/notebooks/Underworld_Introduction.ipynb" width="100%" height="500" scrolling="yes">
 </iframe>
 
-<iframe src="../../notebooks/Underworld_Introduction.html" width="100%" height="500" scrolling="yes">
+<iframe src="nb_html/Underworld_Introduction.html" width="100%" height="500" scrolling="yes">
 </iframe>
 
 
