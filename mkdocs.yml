@@ -10,7 +10,7 @@ docs_dir: content/docs
 
 nav:
 - Home:
-    - Home.md
+    - Index.md
 - Site Map:
     - Map.md
 - About:
