@@ -69,7 +69,7 @@ extra_javascript:
 
 plugins:
    - search
-   - macros
+#   - macros
 
 markdown_extensions:
   - admonition
