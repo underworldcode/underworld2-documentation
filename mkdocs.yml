@@ -1,7 +1,7 @@
 site_name: Underworld — Geodynamics Modelling Code
 site_author: Louis Moresi
-site_dir: static/www
-docs_dir: static/docs
+site_dir: www
+docs_dir: content/docs
 
 ## Add the pages you want built here
 #
@@ -69,7 +69,7 @@ extra_javascript:
 
 plugins:
    - search
-#   - macros
+   - macros
 
 markdown_extensions:
   - admonition

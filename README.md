@@ -2,7 +2,12 @@
 
 ## User Manual
 
-https://geodynamics-with-underworld.readthedocs.io/en/latest/?badge=latest
+Available on readthedocs.org as
+
+[Underworld User Documentation](https://geodynamics-with-underworld.readthedocs.io/en/latest)
+
+
+[![Documentation Status](https://readthedocs.org/projects/geodynamics-with-underworld/badge/?version=latest)](https://geodynamics-with-underworld.readthedocs.io/en/latest/?badge=latest)
 
 
 ## Live examples

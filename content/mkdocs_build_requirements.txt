@@ -1,0 +1,9 @@
+#
+#
+#
+
+
+mkdocs>=1.0.4
+mkdocs-macros-plugin
+pymdown-extensions
+pygments

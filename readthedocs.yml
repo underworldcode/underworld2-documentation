@@ -6,4 +6,4 @@ build:
 python:
   version: 3.6
 
-requirements_file: static/build_requirements.txt
+requirements_file: content/mkdocs_build_requirements.txt

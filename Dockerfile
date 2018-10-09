@@ -12,14 +12,15 @@ ENV HOME /home/${NB_USER}
 
 # We have to do some manipulation as the root user to begin with.
 
-RUN echo "break cache numero x"
-
 USER root
 
-RUN pip install mkdocs \
-                mkdocs-material \
-                pygments \
-                pymdown-extensions
+## We can also build the static docs here but
+## we need python 3 for some of this - see the mkdocs_build_requirements.txt file for details
+
+## RUN pip install mkdocs \
+##                 mkdocs-material \
+##                 pygments \
+##                 pymdown-extensions
 
 RUN pip install --upgrade jupyter \
                 jupyter_contrib_nbextensions
@@ -30,15 +31,12 @@ WORKDIR /home/jovyan
 
 ## These are the build templates etc
 
-ADD static static
+ADD content content
 ADD scripts scripts
-
-
-ADD notebooks notebooks
 
 # Trust underworld notebooks
 
-RUN find notebooks -name \*.ipynb  -print0 | xargs -0 jupyter trust  || true
+RUN find content/docs/notebooks -name \*.ipynb  -print0 | xargs -0 jupyter trust  || true
 
 ## Set config options
 RUN rm -rf .jupyter || true

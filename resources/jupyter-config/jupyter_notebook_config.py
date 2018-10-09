@@ -4,7 +4,7 @@
 ## This assumes we launch from the directory
 ## where the built files all live (seems safest)
 
-c.NotebookApp.default_url = '/tree/notebooks/Underworld_Introduction.ipynb'
+c.NotebookApp.default_url = '/tree/content/docs/notebooks/Underworld_Introduction.ipynb'
 
 # c.NotebookApp.file_to_run="Notebooks/StartHere.ipynb"
 # c.NotebookApp.allow_origin="*"
