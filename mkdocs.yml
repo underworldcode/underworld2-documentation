@@ -1,6 +1,6 @@
 site_name: Underworld — Geodynamics Modelling Code
 site_author: Louis Moresi
-site_dir: www
+# site_dir: www
 docs_dir: content/docs
 
 ## Add the pages you want built here
