@@ -43,10 +43,7 @@ The jupyter notebook server makes a distinction between files which are linked a
 
 The repository contains all the scripts and style information to build a website from the content which it finds in the `Content` directory (actually `/demonstration/Content`). All the directories with names that start with `_` are part of that magic. To build the website run this command in the container's command line (in Kitematic, the execute button will start a shell for you)
 
-{% highlight bash %}
-$ _scripts/docker-site-builder   #_ scripts are executable  
-{% endhighlight %}
-
+ 
 You will need to view that site using the jupyter notebooks rather than a standard server or directly from the filesystem as the paths are only valid within that environment.
 
 ## Where to put it

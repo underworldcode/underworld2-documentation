@@ -6,7 +6,13 @@ Area of a circle:
 
 $$
 \pi r^2
+\tag{Area}
 $$
+
+
+\begin{equation}
+    \textrm{equation numbers ?}
+\end{equation}
 
 Random code
 
@@ -20,9 +26,15 @@ def bubble_sort(items):
 ```
 
 
-<iframe src="http://nbviewer.ipython.org/github/sharmak/python/blob/master/concepts/Static_Vs_Class_Method.ipynb" width="100%" height="500" scrolling="yes">
+This is version {{ uw.version }}
 
+{{uw.gh_code}}
+
+{{uw.gh_docs}}/notebooks/Underworld_Introduction.ipynb
+
+<iframe src="{{uw.gh_render_doc}}/notebooks/Underworld_Introduction.ipynb" width="100%" height="500" scrolling="yes">
 </iframe>
+
 
 _This is a collection of tools to set up a web server in a docker container that mixes static html content and dynamic "literate-programming" content via jupyter notebooks._
 

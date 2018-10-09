@@ -1,6 +1,7 @@
 site_name: Underworld — Geodynamics Modelling Code
 site_author: Louis Moresi
-site_dir: www
+site_dir: static/www
+docs_dir: static/docs
 
 ## Add the pages you want built here
 #
@@ -13,13 +14,8 @@ nav:
 - Site Map:
     - Map.md
 - About:
-    - 'How to write a new page' : WritingContent.md
+    - 'How to write a new page'   : WritingContent.md
     - 'Installation instructions' : Instructions.md
-
-- Notebooks:
-    - "/tree/Notebooks"
-- Terminal:
-    - "/terminals/1"
 
 
 ## No need to change these config options unless you want to change the theme or the
@@ -27,10 +23,8 @@ nav:
 #
 #  Some of these options are not intuitive so take care !
 
-
-
 theme:
-  name: material
+  name: readthedocs
   feature:
     tabs: true
 
@@ -44,11 +38,28 @@ extra:
       link: 'https://github.com/underworldcode'
     - type: 'twitter'
       link: 'https://twitter.com/underworldcode'
-
+  uw:
+    version: 2.6.0b  # Note variables do not nest in this version of the macros
+    gh_code: https://github.com/underworldcode/underworld2/tree/2.6.0b
+    gh_docs: https://github.com/underworldcode/underworld2-documentation/tree/master
+    gh_render_doc: https://nbviewer.jupyter.org/github/underworldcode/underworld2-documentation/blob/master
 
 # Layout of pages
 
 use_directory_urls: False
+
+###
+### This section is configuration of the build and does not change the site structure
+###
+### Config below requires:
+###   python3
+###   pip3 install mkdocs # obviously
+###   pip3 install mkdocs-macros-plugin
+###   pip3 install pymdown-extensions
+###
+### see docs/build_requirements.txt
+
+
 
 # Mathematics
 
@@ -56,12 +67,15 @@ extra_javascript:
   - js/mathjax-local-config.js
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
+plugins:
+   - search
+   - macros
 
 markdown_extensions:
   - admonition
   - codehilite
   - footnotes
-  # - pymdownx.arithmatex
+  - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.caret

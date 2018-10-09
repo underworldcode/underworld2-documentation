@@ -32,21 +32,13 @@ WORKDIR /home/jovyan
 
 ADD static static
 ADD scripts scripts
-# RUN ./scripts/run-sitebuilder
 
 
 ADD notebooks notebooks
-# RUN mv /workspace/user_guide   www/Notebooks
-# RUN mv /workspace/publications www/Notebooks
-# RUN mv /workspace/tutorials    www/Notebooks
-#
+
 # Trust underworld notebooks
 
 RUN find notebooks -name \*.ipynb  -print0 | xargs -0 jupyter trust  || true
-
-
-## Update the ruby dependencies and build the site
-
 
 ## Set config options
 RUN rm -rf .jupyter || true
