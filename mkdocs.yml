@@ -1,4 +1,4 @@
-site_name: Underworld, A Geodynamics Modelling Code
+site_name: "Underworld - A Geodynamics Modelling Code"
 site_author: Louis Moresi
 # site_dir: www
 docs_dir: content/docs
@@ -9,8 +9,9 @@ docs_dir: content/docs
 #  bar at the top of the page. Either as individual links or as a dropdown menu of links
 
 nav:
-- Home:
-    - Index.md
+- Sections:
+    - index.md
+    - Test.md
 - Site Map:
     - Map.md
 - About:
