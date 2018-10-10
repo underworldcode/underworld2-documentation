@@ -9,15 +9,25 @@ docs_dir: content/docs
 #  bar at the top of the page. Either as individual links or as a dropdown menu of links
 
 nav:
-- Sections:
-    - index.md
-    - Test.md
-- Site Map:
-    - Map.md
-- About:
-    - 'How to write a new page'   : WritingContent.md
-    - 'Installation instructions' : Instructions.md
+- "Home" : index.md
+- Underworld:
+    - "Introduction" : index.md
+    - "Getting Started" : StartHere.md
+    - Subhead:
+        - A : a.md
+        - B : b.md
+        - C :
+            - D: D.md
+            - E: E.md
 
+- Numerical Modelling Primer:
+    - 'Introduction' : Numerical/Introduction.md
+- Geodynamics:
+    - 'Introduction'   : Geodynamics/Introduction.md
+    - 'Mathematical Background' : Geodynamics/Mathematics.md
+
+#- About Us:
+#    - ''
 
 ## No need to change these config options unless you want to change the theme or the
 #  layout of the navigation bar.
