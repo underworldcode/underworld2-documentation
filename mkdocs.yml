@@ -1,10 +1,11 @@
 site_name: "Underworld - A Geodynamics Modelling Code"
 site_author: Louis Moresi
-# site_dir: www
+site_dir: www
 docs_dir: content/docs
+python_module: mkdocs_macros
 
 ## Add the pages you want built here
-#
+##
 #  The hierarchy of the list describes how these pages will be represented in the navigation
 #  bar at the top of the page. Either as individual links or as a dropdown menu of links
 
@@ -19,6 +20,7 @@ nav:
     #     - C :
     #         - D: D.md
     #         - E: E.md
+
 
 - Numerical Modelling Primer:
     - 'Introduction' : Numerical/Introduction.md

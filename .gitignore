@@ -4,5 +4,8 @@ _site
 
 # Site build
 www
+site
 
 *output*
+
+__pycache__
