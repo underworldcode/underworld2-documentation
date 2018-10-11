@@ -4,11 +4,20 @@ title: Underworld 2
 
 ## Macro plugin
 
-{{ baz }}
 
-{{ bar(4.0)}}
+{{ embed_notebook("/nb_html/Underworld_Introduction.html", fname="nb_frame1")}}
 
-{{ embed_notebook("/nb_html/Underworld_Introduction.html")}}
+
+<a href='http://www.underworldcode.org/pages/Blog' target="this_frame"> Blog</a>
+
+<a href='http://www.underworldcode.org/pages/UserGuide/' target="nb_frame1">User Guide</a>
+
+{{ nb_nbviewer_location("Underworld_Introduction") }}
+
+{{ figure("/notebooks/images/Montage.png",
+          fstyle="float:right; width:100%; border:1px; padding:10px; ",
+          istyle="margin-left:10px; width:50%;",
+          caption="Underworld models") }}
 
 [_Underworld 2_](http://www.underworldcode.org) is a python-friendly version of the Underworld code which provides a programmable and flexible front end to all the functionality of the code running in a parallel HPC environment. This gives signficant advantages to the user, with access to the power of python libraries for setup of complex problems, analysis at runtime, problem steering, and multi physics coupling. While Underworld2 embraces Jupyter Notebooks as the preferred modelling environment, only standard python is required.
 

@@ -8,6 +8,12 @@ MathJax.Hub.Config({
       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
       processEscapes: true
     },
-    TeX: { equationNumbers: { autoNumber: "AMS" } },
-    "HTML-CSS": { availableFonts: ["TeX"] }
+
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" }
+    },
+    "HTML-CSS": {
+      availableFonts: ["TeX"],
+      scale: 85
+    }
   });

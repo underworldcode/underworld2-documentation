@@ -14,42 +14,46 @@ def declare_variables(variables, macro):
     uw_version = '2.6.0b'
     uw_gh_code = 'https://github.com/underworldcode/underworld2/tree/'+uw_version
     uw_gh_docs = 'https://github.com/underworldcode/underworld2-documentation/tree/master'
-    uw_nbviewer_base_url = 'https://nbviewer.jupyter.org/github/underworldcode/underworld2-documentation/blob/master'
+    uw_nbviewer_base_url = 'https://nbviewer.jupyter.org/github/underworldcode/underworld2-documentation/blob/master/content/docs/notebooks'
 
     variables['uw_version'] = uw_version
 
 
-    print(uw_version)
-    print(uw_gh_code)
-
     @macro
-    def bar(x):
-        return (2.3 * x) + 7
-
-
-
-    # If you wish, you can  declare a macro with a different name:
-    def f(x):
-        return x * x
-
-    macro(f, 'barbaz')
-
-    # or to export some predefined function
-    import math
-    macro(math.floor) # will be exported as 'floor'
-
-
-    @macro
-    def embed_notebook(name):
-        HTMLtemplate = """<iframe height="500" width="100%" src="{}""></iframe>"""
-        HTML = HTMLtemplate.format(name)
+    def embed_notebook(name, nb_height="400px", fname=""):
+        HTMLtemplate = """<iframe height={} width="100%" src="{}" name="{}"></iframe>"""
+        HTML = HTMLtemplate.format(nb_height, name, fname)
         return HTML
 
+    @macro
+    def nb_nbviewer_location(path2nb):
+        path2nb = path2nb.replace(".html",".ipynb")
+        if not path2nb.endswith(".ipynb"):
+            path2nb = path2nb+".ipynb"
+
+        return uw_nbviewer_base_url+"/"+path2nb
+
+    @macro
+    def nb_html_location(path2nb):
+        path2nb = path2nb.replace(".ipynb",".html")
+        if not path2nb.endswith(".html"):
+            path2nb = path2nb+".html"
+        return "/nb_html/"+path2nb
 
 
-# @macro
-# def button(label, url):
-#     "Add a button"
-#     url = fix_url(url)
-#     HTML = """<a class='button' href="%s">%s</a>"""
-#     return HTML % (url, label)
+    @macro
+    def figure(imgname, fstyle="", istyle="", caption=""):
+
+        HTMLtemplate = """<div id="figure">
+        <figure style="padding:10px; {}">
+        <img src="{}" style="width:100%; display: block; margin-left: auto; margin-right: auto; {}"  >
+        <figcaption style="font-size:smaller; font-style:oblique; width:100%;">
+        {}
+        </figcaption>
+        </figure>
+        </div>
+        """
+
+
+        HTML = HTMLtemplate.format( fstyle, imgname, istyle, caption)
+        return HTML

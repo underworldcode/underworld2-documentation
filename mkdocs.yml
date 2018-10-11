@@ -77,8 +77,8 @@ use_directory_urls: False
 # Mathematics
 
 extra_javascript:
-  - js/mathjax-local-config.js
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+  - js/mathjax-local-config.js
 
 plugins:
    - search
