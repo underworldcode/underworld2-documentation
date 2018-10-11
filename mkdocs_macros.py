@@ -34,14 +34,6 @@ def declare_variables(variables, macro):
         return uw_nbviewer_base_url+"/"+path2nb
 
     @macro
-    def nb_html_location(path2nb):
-        path2nb = path2nb.replace(".ipynb",".html")
-        if not path2nb.endswith(".html"):
-            path2nb = path2nb+".html"
-        return "/nb_html/"+path2nb
-
-
-    @macro
     def figure(imgname, fstyle="", istyle="", caption=""):
 
         HTMLtemplate = """<div id="figure">

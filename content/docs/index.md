@@ -5,7 +5,7 @@ title: Underworld 2
 ## Macro plugin
 
 
-{{ embed_notebook("/nb_html/Underworld_Introduction.html", fname="nb_frame1")}}
+{{ embed_notebook("./nb_html/Underworld_Introduction.html", fname="nb_frame1")}}
 
 
 <a href='http://www.underworldcode.org/pages/Blog' target="this_frame"> Blog</a>
@@ -14,7 +14,7 @@ title: Underworld 2
 
 {{ nb_nbviewer_location("Underworld_Introduction") }}
 
-{{ figure("/notebooks/images/Montage.png",
+{{ figure("./notebooks/images/Montage.png",
           fstyle="float:right; width:100%; border:1px; padding:10px; ",
           istyle="margin-left:10px; width:50%;",
           caption="Underworld models") }}
