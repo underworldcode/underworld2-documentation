@@ -9,7 +9,6 @@ $$
 \newcommand{\Green}[1]{\textcolor[rgb]{0.0,0.7,0.0}{ \#1}}
 \newcommand{\Blue}[1]{\textcolor[rgb]{0.0,0.0,0.7}{ \#1}}
 \newcommand{\Emerald}[1]{\textcolor[rgb]{0.0,0.7,0.3}{ \#1}}
-\newcommand{\curly}
 $$
 
 

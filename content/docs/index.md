@@ -2,7 +2,7 @@
 title: Underworld 2
 ---
 
-## Macro plugin
+![Montage.png](./notebooks/images/Montage.png)
 
 
 {{ embed_url("./nb_html/Underworld_Introduction.html", fname="nb_frame1") }}
