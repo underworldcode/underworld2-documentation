@@ -20,10 +20,38 @@ def declare_variables(variables, macro):
 
 
     @macro
-    def embed_notebook(name, nb_height="400px", fname=""):
-        HTMLtemplate = """<iframe height={} width="100%" src="{}" name="{}"></iframe>"""
-        HTML = HTMLtemplate.format(nb_height, name, fname)
+    def embed_url(name, nb_height="400px", fname="nb_frame"):
+
+
+## The substitution is messy because of the { } in the Javascript. this
+## code creates a script to replace the embedded URL in the frame using the
+## name of the frame itself.
+
+        HTMLtemplate = """<iframe height={nb_height} width="100%" src="{name}" id="{fname}">
+</iframe>
+<script language="JavaScript" type="text/javascript">
+<!--
+  function changeFrame_{fname}(newPage) @@[
+  document.getElementById("{fname}").src = newPage;
+  @@]
+//  -->
+</script>
+"""
+
+        HTML = HTMLtemplate.format(nb_height=nb_height, name=name, fname=fname)
+        HTML = HTML.replace("@@[","{")
+        HTML = HTML.replace("@@]","}")
+
         return HTML
+
+    @macro
+    def replace_embedded_url(name, fname, linktext):
+
+        HTMLtemplate ="""<a href="{name}" onClick="changeFrame_{fname}(this.href); return false;">{linktext}</a>"""
+        HTML = HTMLtemplate.format(name=name, fname=fname, linktext=linktext)
+
+        return HTML
+
 
     @macro
     def nb_nbviewer_location(path2nb):

@@ -5,12 +5,15 @@ title: Underworld 2
 ## Macro plugin
 
 
-{{ embed_notebook("./nb_html/Underworld_Introduction.html", fname="nb_frame1")}}
+{{ embed_url("./nb_html/Underworld_Introduction.html", fname="nb_frame1") }}
 
 
-<a href='http://www.underworldcode.org/pages/Blog' target="this_frame"> Blog</a>
+{{ replace_embedded_url("./nb_html/examples/1_01_Steady_State_Heat.html",
+                        "nb_frame1",  
+                        "1_01_Steady_State_Heat") }}
 
-<a href='http://www.underworldcode.org/pages/UserGuide/' target="nb_frame1">User Guide</a>
+
+
 
 {{ nb_nbviewer_location("Underworld_Introduction") }}
 
