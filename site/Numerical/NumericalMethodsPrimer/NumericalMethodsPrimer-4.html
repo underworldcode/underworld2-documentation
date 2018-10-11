@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Louis Moresi">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>NumericalMethodsPrimer 4 - Underworld - A Geodynamics Modelling Code</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "NumericalMethodsPrimer 4";
+    var mkdocs_page_input_path = "Numerical/NumericalMethodsPrimer/NumericalMethodsPrimer-4.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="icon icon-home"> Underworld - A Geodynamics Modelling Code</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Underworld</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../index.html">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../StartHere.md">Getting Started</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Numerical Modelling Primer</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Geodynamics</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Geodynamics/Introduction.html">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../Geodynamics/Mathematics.md">Mathematical Background</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Underworld - A Geodynamics Modelling Code</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>NumericalMethodsPrimer 4</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>\[
+\require{color}
+\newcommand{\dGamma}{\mathbf{d}\boldsymbol{\Gamma}}
+\newcommand{\erfc}{\mbox{\rm erfc}}
+\newcommand{\curly}{\sf }
+\newcommand{\Red}[1]{\textcolor[rgb]{0.7,0.0,0.0}{#1}}
+\newcommand{\Green}[1]{\textcolor[rgb]{0.0,0.7,0.0}{ #1}}
+\newcommand{\Blue}[1]{\textcolor[rgb]{0.0,0.0,0.7}{ #1}}
+\newcommand{\Emerald}[1]{\textcolor[rgb]{0.0,0.7,0.3}{ #1}}
+\newcommand{\curly}
+\]</p>
+<h2 id="prelude-to-finite-elements-the-variational-calculus">Prelude to Finite Elements: The Variational Calculus</h2>
+<p>This is something of an aside but it is absolutely necessary to understand the variational method in order to follow how Finite Element Methods work</p>
+<h3 id="example-how-short-is-a-straight-line">Example: How Short is a Straight Line ?</h3>
+<p>It's intuitively obvious that the shortest distance between two points on a plane is just a straight line. To demonstrate this mathematically is more tricky.</p>
+<p>In words, the procedure goes like this: of all possible curves between the two points, find  one (if it exists) which  always becomes longer if it is altered in any way.   (Thinking physically, if the points were linked by a rubber band, then to disturb it from the shortest curve would require additional energy, no matter what that disturbance looked like).</p>
+<hr />
+<p><img alt="" src="../Diagrams/varn_strt1.png" />{. width="75%"}</p>
+<p><em>What curve gives the shortest distance between two points in a plane ?  And how can we prove it !</em></p>
+<hr />
+<p>We decide, arbitrarily, that we will make <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> the independent variable and find a curve <span><span class="MathJax_Preview">y(x)</span><script type="math/tex">y(x)</script></span> which satisfies the minimum distance requirement.</p>
+<p>The distance along a curve is a path integral :
+\[
+    S = \int_{x_1}^{x_2} \frac{ds}{dx} dx <br />
+\]
+where
+\[
+        \frac{ds}{dx} = \sqrt{1 + \left( \frac{dy}{dx} \right)^2}
+\]</p>
+<p>We seek to find <span><span class="MathJax_Preview">y(x)</span><script type="math/tex">y(x)</script></span> which minimizes <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>. First consider the function</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+    \begin{split}
+    Y(x,\alpha) &amp;= y(x) + \alpha \eta(x) \\
+    \frac{\partial Y}{\partial x} \equiv Y' &amp;= y'(x) + \alpha \eta'(x)
+    \end{split}
+    \nonumber
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+    \begin{split}
+    Y(x,\alpha) &= y(x) + \alpha \eta(x) \\
+    \frac{\partial Y}{\partial x} \equiv Y' &= y'(x) + \alpha \eta'(x)
+    \end{split}
+    \nonumber
+\end{equation}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\eta(x)</span><script type="math/tex">\eta(x)</script></span> is an arbitrary function which is differentiable and vanishes at <span><span class="MathJax_Preview">x=x_1,x_2</span><script type="math/tex">x=x_1,x_2</script></span>. This is the variation which we apply to some curve <span><span class="MathJax_Preview">y(x)</span><script type="math/tex">y(x)</script></span> to see if it gets shorter or longer. Note the notation for the derivative which will be useful as we procede. The optimal path will minimize  <span><span class="MathJax_Preview">S(\alpha)</span><script type="math/tex">S(\alpha)</script></span>, when <span><span class="MathJax_Preview">\alpha=0</span><script type="math/tex">\alpha=0</script></span>, i.e.</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+        \left. \frac{\partial S(\alpha)}{\partial \alpha} \right| _ {\alpha = 0} = 0 \nonumber
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+        \left. \frac{\partial S(\alpha)}{\partial \alpha} \right| _ {\alpha = 0} = 0 \nonumber
+\end{equation}</script>
+</div>
+<p>In our current notation</p>
+<p>\begin{equation}
+     S(\alpha) = \int_{x_1}^{x_2} \sqrt{1 + (Y')^2} \nonumber
+ \end{equation}</p>
+<p>and</p>
+<p>\begin{equation}
+     \frac{\partial S(\alpha)}{\partial \alpha} =
+         \int_{x_1}^{x_2}  \frac{1}{2} \frac{1}{\sqrt{1 + (Y')^2}} . 2 Y' \frac{\partial Y'}{\partial \alpha} dx
+         \nonumber
+ \end{equation}</p>
+<p>from the definition of <span><span class="MathJax_Preview">Y'(x,\alpha)</span><script type="math/tex">Y'(x,\alpha)</script></span></p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+    \frac{\partial Y'}{\partial \alpha} = \eta'(x)
+    \nonumber
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+    \frac{\partial Y'}{\partial \alpha} = \eta'(x)
+    \nonumber
+\end{equation}</script>
+</div>
+<p>So we now must solve
+\begin{equation}
+    \left. \frac{\partial S(\alpha)}{\partial \alpha} \right| _ {\alpha = 0} =
+        \int_{x_1}^{x_2} \frac{y'(x)\eta'(x)}{\sqrt{1 + (y') ^ 2}} dx = 0
+    \nonumber
+\end{equation}</p>
+<p>We integrate by parts to give</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+    \left. \frac{\partial S(\alpha)}{\partial \alpha} \right| _ {\alpha = 0} =
+        \left[   \frac{y'(x)\eta(x)}{\sqrt{1 + (y')^2}} \right] _ {x_1}^{x_2} -
+        \int_{x_1}^{x_2} \eta{x} \frac{d}{dx} \frac{y'(x)}{\sqrt{1 + (y')^2}} dx = 0
+        \nonumber
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+    \left. \frac{\partial S(\alpha)}{\partial \alpha} \right| _ {\alpha = 0} =
+        \left[   \frac{y'(x)\eta(x)}{\sqrt{1 + (y')^2}} \right] _ {x_1}^{x_2} -
+        \int_{x_1}^{x_2} \eta{x} \frac{d}{dx} \frac{y'(x)}{\sqrt{1 + (y')^2}} dx = 0
+        \nonumber
+\end{equation}</script>
+</div>
+<p>The first term on the RHS vanishes because <span><span class="MathJax_Preview">\eta</span><script type="math/tex">\eta</script></span> vanishes at the boundaries. The second term is valid for arbitrary <span><span class="MathJax_Preview">\eta(x)</span><script type="math/tex">\eta(x)</script></span> which implies</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}   
+         \frac{d}{dx} \frac{y'(x)}{\sqrt{1 + (y')^2}} dx = 0
+         \nonumber
+    \end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}   
+         \frac{d}{dx} \frac{y'(x)}{\sqrt{1 + (y')^2}} dx = 0
+         \nonumber
+    \end{equation}</script>
+</div>
+<p>which in turn implies <span><span class="MathJax_Preview">y'=</span><script type="math/tex">y'=</script></span>constant, i.e. the equation of a straight line.</p>
+<p>The important things to note here are that an integral method can be used to solve a simple geometrical problem and that the method itself includes the boundary conditions as a natural consequence of the way it is set up.</p>
+<p>The variational method can be generalized to solve more important problems. In particular, instead of solving each problem as we have for the straight line / distance question above, we solve a generic problem whose solutions we can apply immediately.</p>
+<h3 id="generalisation">Generalisation</h3>
+<p>The general form works like this. To find the function <span><span class="MathJax_Preview">y(x)</span><script type="math/tex">y(x)</script></span> which produces a stationary value of the functional</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+    J=\int_{x_1}^{x_2} F(x,y,y') dx
+    \nonumber
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+    J=\int_{x_1}^{x_2} F(x,y,y') dx
+    \nonumber
+\end{equation}</script>
+</div>
+<p>we work through the same procedure as above, and use the same arguments concerning the arbitrary nature of the variation to obtain
+\begin{equation}
+        \frac{d}{dx}\frac{\partial F}{\partial y'} - \frac{\partial F}{\partial y} = 0
+        \nonumber
+\end{equation}
+This is known as the Euler equation. Hamilton's principle states that mechanical systems evolve such that the integral</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+        J=\int_{t_1}^{t_2} L dt
+        \nonumber
+    \end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+        J=\int_{t_1}^{t_2} L dt
+        \nonumber
+    \end{equation}</script>
+</div>
+<p>is stationary. Here <span><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> is the Lagrangian of the system which is identified with a combination of  the work done on the system and the kinetic energy of the system, e.g. potential energy - kinetic energy.</p>
+<p>Application of the Euler equation to each direction independently recovers Newton's law (<span><span class="MathJax_Preview">F=ma</span><script type="math/tex">F=ma</script></span>). In complex geometries and with difficult boundary conditions, the variational form may be easier to solve than the differential or "strong" form. <em>This shows us that there are equivalent integral representations for the standard mechanical equations we are accustomed to using - variational or weak forms versus differential or strong forms</em>.</p>
+<p>Although this may seem complicated and of rather theoretical interest, in fact it runs throughout finite element methods, and the concept must be familiar in order to follow how FEM works. Advantages of using variational forms of the equations include:</p>
+<ul>
+<li>
+<p>The simplification of the construction of the governing equations in the sense that scalar quantities --- energies, potentials --- are considered in place of forces, displacements etc. There is also the possibility that such formulations can be derived more-or-less automatically for previously unknown systems.</p>
+</li>
+<li>
+<p>Governing equations may be more directly accessible since "unimportant" variables such as internal forces doing no net work do not appear in the variational form.</p>
+</li>
+<li>
+<p>When dealing with approximate solutions, the variational form often allows a broader range of trial functions than for the standard differential form. This happens because some boundary conditions are implicit in the formulation and hence are not imposed on the trial functions themselves.</p>
+</li>
+</ul>
+<h3 id="example-of-variational-forms-for-fem">Example of Variational Forms for FEM</h3>
+<p>See Klaus-Jürgen Bathe's book for a more complete outline of this approach to FEM. Although this is not the best text to explain how to <em>implement</em> a finite element code, he does a great job of explaining the link between variational methods and weak forms of various equations of progressively increasing complexity.</p>
+<hr />
+<p><img alt="" src="../Diagrams/heatcond.png" /></p>
+<p><em>A Slab of Material Subjected to an sudden onset of heating at <span><span class="MathJax_Preview">Q</span><script type="math/tex">Q</script></span> on one side at time <span><span class="MathJax_Preview">t=0</span><script type="math/tex">t=0</script></span></em></p>
+<hr />
+<p>The functional governing the temperature in the <a href="#heated-bar">block of material</a> is
+ \begin{equation}
+    \Pi = \int_0^L \frac{1}{2} k \left(\frac{\partial \theta}{\partial x} \right)^2 dx -<br />
+                    \int_0^L \theta q^B dx - \theta(0,t) Q
+                    \nonumber
+\end{equation}</p>
+<p>where <span><span class="MathJax_Preview">q^B</span><script type="math/tex">q^B</script></span> is an internal heat generation rate. The fixed boundary condition is <span><span class="MathJax_Preview">\theta(L,t) =\theta_i</span><script type="math/tex">\theta(L,t) =\theta_i</script></span>.</p>
+<p>This is our generalized problem with
+\begin{equation}
+        F = \frac{1}{2}k  \left(\frac{\partial \theta}{\partial x} \right)^2 - \theta q^B
+            = \frac{1}{2}k {\theta'}^2 - \theta q^B
+        \nonumber
+\end{equation}</p>
+<p>which produces a stationary functional if</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+         \frac{d}{dx}\frac{\partial F}{\partial \theta'} - \frac{\partial F}{\partial \theta} = 0  
+         \nonumber  
+ \end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+         \frac{d}{dx}\frac{\partial F}{\partial \theta'} - \frac{\partial F}{\partial \theta} = 0  
+         \nonumber  
+ \end{equation}</script>
+</div>
+<p>or, in other words
+\begin{equation}
+        k\frac{d^2 \theta}{d x^2} = q^B
+        \nonumber
+\end{equation}</p>
+<p>Which we recognize to be the governing differential equation. The variational
+statement also contains the natural boundary condition</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+         k \left. \frac{\partial \theta}{\partial x}    \right| _ {x=0} + Q = 0
+         \nonumber
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+         k \left. \frac{\partial \theta}{\partial x}    \right| _ {x=0} + Q = 0
+         \nonumber
+\end{equation}</script>
+</div>
+<p>This is a clear demonstration that the standard form of the equations plus certain boundary conditions can be fully wrapped up in integral form and are exactly equivalent to the standard form.
+The major difficulty is in how we produce the correct functional in the first place, especially if we want to avoid first deriving the differential form of the equations and back-calculating as we done above.</p>
+<h3 id="extension-to-approximate-methods">Extension to Approximate Methods</h3>
+<p>The problem above is simple enough that the integral or differential forms of the equations can be solved directly. In general, however, we anticipate dealing with problems where no closed form of solution exists. Under these circumstances approximate solutions are desirable. In particular, there is a class of approximation methods which use families of trial functions to obtain a best fit approximation to the solution. These naturally develop into finite element algorithms as we shall soon see.</p>
+<h3 id="formulation-of-a-general-problem">Formulation of a General Problem</h3>
+<p>We consider a steady-state problem characterized by the following
+strong form
+\begin{equation}
+    {\cal{L}} (\phi) = f
+    \nonumber
+\end{equation}</p>
+<p>where <span><span class="MathJax_Preview">{\cal{L}}</span><script type="math/tex">{\cal{L}}</script></span> is a linear differential operator acting on the
+(unknown) state variable <span><span class="MathJax_Preview">\phi</span><script type="math/tex">\phi</script></span> in responce to a forcing function <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>.
+Boundary conditions are
+\begin{equation}
+    {\cal{B}}_i [\phi] = \left. q_i \right| _ {\textrm{ \small at boundary } S_i}    \;\;\; i=1,2,\ldots
+    \nonumber
+\end{equation}</p>
+<p>The operator should be symmetric
+\begin{equation}
+    \int_\Omega v {\cal{L}}(u) d\Omega =  \int_\Omega u {\cal{L}}(v) d\Omega
+    \nonumber
+\end{equation}</p>
+<p>and positive definite</p>
+<p>\begin{equation}
+        \int_\Omega u {\cal{L}}(u) d\Omega &gt; 0
+        \nonumber
+\end{equation}
+<span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> is the domain of the operator and <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> and <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> are any functions which satisfy the boundary conditions.  </p>
+<hr />
+<p><img alt="" src="../Diagrams/rodpull.png" />{. width="75%" id="rod-end-load"}</p>
+<p><em>A rod subject to end load --- Young's modulus, <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span>, density, <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span>, cross sectional area, <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span></em></p>
+<hr />
+<p>Consider the 1D example of a bar subject to a steady end load. The response is the solution to</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+        -EA\frac{\partial^2 u}{\partial x^2} = 0
+        \nonumber
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+        -EA\frac{\partial^2 u}{\partial x^2} = 0
+        \nonumber
+\end{equation}</script>
+</div>
+<p>subject to the boundary conditions</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+    \begin{split}
+            \left. u \right| _ {x=0} &amp; = 0 \\
+            \left. EA\frac{\partial u}{\partial x} \right| _ {x=L} = R
+    \end{split}
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+    \begin{split}
+            \left. u \right| _ {x=0} & = 0 \\
+            \left. EA\frac{\partial u}{\partial x} \right| _ {x=L} = R
+    \end{split}
+\end{equation}</script>
+</div>
+<p>We therefore identify</p>
+<p>\begin{eqnarray}
+     {\cal{L}}= -EA\frac{\partial^2 u}{\partial x^2} &amp; \phi = u &amp; f = 0 \ \nonumber
+     &amp; B_1 = 1 ; q_1 = 0 &amp; \ \nonumber
+     &amp; B_2 =  EA\frac{\partial }{\partial x}; q_2 = R &amp; \nonumber
+ \end{eqnarray}</p>
+<p>To check symmetry and positive definiteness of the operator we consider <span><span class="MathJax_Preview">R=0</span><script type="math/tex">R=0</script></span> since the operator properties are independent of the actual load.</p>
+<p>Integrating by parts gives</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+    \begin{split}
+    \int_0^L-EA\frac{\partial^2 u}{\partial x^2} v dx &amp; =   
+        - \left. EA\frac{\partial u}{\partial x} v \right| _ 0^L + \int_0^L EA \frac{\partial u}{\partial x} \frac{\partial v}{\partial x} dx \\
+         &amp;= - \left. EA\frac{\partial u}{\partial x} v \right| _ 0^L  - \left. + EA u \frac{\partial v}{\partial x}  \right| _ 0^L
+         - \int_0^L EA\frac{\partial^2 v}{\partial x^2} u dx
+    \end{split}
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+    \begin{split}
+    \int_0^L-EA\frac{\partial^2 u}{\partial x^2} v dx & =   
+        - \left. EA\frac{\partial u}{\partial x} v \right| _ 0^L + \int_0^L EA \frac{\partial u}{\partial x} \frac{\partial v}{\partial x} dx \\
+         &= - \left. EA\frac{\partial u}{\partial x} v \right| _ 0^L  - \left. + EA u \frac{\partial v}{\partial x}  \right| _ 0^L
+         - \int_0^L EA\frac{\partial^2 v}{\partial x^2} u dx
+    \end{split}
+\end{equation}</script>
+</div>
+<p>Application of boundary conditions demonstrates that the operator is symmetric by our definition.</p>
+<p>Positive definiteness is also assured since</p>
+<p>\begin{equation}
+        \int_0<sup>L-EA\frac{\partial</sup>2 u}{\partial x^2} u dx =   <br />
+            - \left. EA\frac{\partial u}{\partial x} u \right| _ 0^L + \int_0^L EA \frac{\partial u}{\partial x} \frac{\partial u}{\partial x} dx         =
+            0 + \int_0^L EA \left(\frac{\partial u}{\partial x}\right)^2 dx       <br />
+ \end{equation}</p>
+<p>Suppose we now search for approximate solutions of the form
+\begin{equation}
+    \bar{\phi} = \sum_{i=1}^{n} a_i \Phi_i<br />
+    \nonumber
+\end{equation}
+where <span><span class="MathJax_Preview">\Phi_i</span><script type="math/tex">\Phi_i</script></span> are linearly independent trial functions and the <span><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span> are the unknown weights for each of the functions.</p>
+<p>In weighted residuals methods, the expansion is used directly on the strong form of the equations. <span><span class="MathJax_Preview">\Phi_i</span><script type="math/tex">\Phi_i</script></span> are chosen so as to satisfy all boundary conditions and then we seek to minimize a residual</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+    R = f - {\cal{L}}( \sum_{i=1}^{n} a_i \Phi_i    )
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+    R = f - {\cal{L}}( \sum_{i=1}^{n} a_i \Phi_i    )
+\end{equation}</script>
+</div>
+<h4 id="least-squares-method">Least Squares Method</h4>
+<p>Minimize the square of the residual with respect to <span><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span>
+\begin{equation}
+        \frac{\partial}{\partial a_i} \int_\Omega R^2 d\Omega = 0   \;\;\; i = 1,2,\ldots \nonumber
+\end{equation}</p>
+<p>This method produces a symmetric coefficient matrix regardless of the
+properties of the operator.</p>
+<h4 id="galerkin-method">Galerkin Method</h4>
+<p>To determine <span><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span>, solve the n equation system
+\begin{equation}
+    \int_\Omega N_i R d\Omega = 0    \;\;\; i = 1,2,\ldots
+\end{equation}
+over the solution domain <span><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span>. This method produces a symmetric, positive definite coefficient matrix if the operator is symmetric and positive definite.</p>
+<h4 id="ritz-method">Ritz Method</h4>
+<p>The Ritz method does not operate on the residual of the strong problem, but minimizes the weak form of the problem with respect to each of the unknown parameters <span><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span> in the usual variational manner. The trial functions no longer need satisfy the natural boundary conditions of the problem as these are wrapped up in the variational form. (Again, see Bathe for discussion and examples).</p>
+<p>The Galerkin method can be extended to include a term which minimizes the violation of natural boundary conditions, and thus permits the use of a wider range of trial functions
+\begin{equation}
+    \int_\Omega N_i R d\Omega  + \int_\Gamma N_i R_B d\Gamma = 0     \;\;\; i = 1,2,\ldots
+    \label{eq:galerk1}
+\end{equation}</p>
+<p>However, it does not now necessarily produce a symmetric matrix even for a symmetric operator. However, if the equation (\ref{eq:galerk1} ) is integrated once by parts, it yields a symmetric form and also reduces the order of derivatives inside the integral. This means that the trial functions need be of lower order, and it makes the Galerkin formulation equivalent to the Ritz formulation.</p>
+<p>Weighted residual formulations have one advantage: they can be used whether or not there exists a functional corresponding to the particular problem.  As a result is used this method is used extensively in constructing finite element methods.</p>
+<h2 id="finite-element-theory">Finite Element Theory</h2>
+<h3 id="the-genesis-of-a-matrix-method">The Genesis of a Matrix Method</h3>
+<p>One of the dominant features of the Finite Element literature is that it is filled with matrix algebra. The fact that differential equations can be rendered into matrices seems at first to be mysterious. However, it results quite naturally from the discretization of the problem, and the parameterization of the discrete equations through a limited set of unknown parameters.</p>
+<p>Thus, before getting deeply involved in the arcane lore of Finite Elements, We give one example of a genuinely discrete system and show how it generates a matrix problem quite naturally.</p>
+<hr />
+<p><img alt="" src="../Diagrams/carts1.png" />{. width="75%" id="mine-carts"}</p>
+<p><em>(a) A system of three carts interconnected by springs of different stiffnesses and in turn connected to an end wall. (b) The element equilibrium diagram for the spring <span><span class="MathJax_Preview">k_2</span><script type="math/tex">k_2</script></span></em></p>
+<hr />
+<p>Consider the system illustrated in the <a href="#mine-carts">figure (a) above</a> --- three freely rolling carts attached by springs. There are three loads applied <span><span class="MathJax_Preview">R_1,R_2,R_3</span><script type="math/tex">R_1,R_2,R_3</script></span>, one to each cart, and we wish to determine the equilibrium displacements <span><span class="MathJax_Preview">U_1,U_2,U_3</span><script type="math/tex">U_1,U_2,U_3</script></span>.  We can <a href="#mine-carts">illustrate graphically</a> the equilibrium condition for one of the springs based on its internal degrees of freedom and effective external load. This equilibrium is:</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+            \begin{split}
+                    k_2 (U_1 - U_2) &amp;= {F_1}^{(2)} \\
+                    k_2 (U_2 - U_1) &amp;= {F_2}^{(2)}
+            \end{split}
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+            \begin{split}
+                    k_2 (U_1 - U_2) &= {F_1}^{(2)} \\
+                    k_2 (U_2 - U_1) &= {F_2}^{(2)}
+            \end{split}
+\end{equation}</script>
+</div>
+<p>or</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+        k_2 \left[  \begin{array}{cc}  1 &amp; -1 \\ -1 &amp; 1 \end{array} \right]
+                \left[      \begin{array}{c} U_1 \\ U_2 \end{array} \right] =
+                \left[      \begin{array}{c} {F_1}^{(2)} \\ {F_2}^{(2)}\end{array} \right]
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+        k_2 \left[  \begin{array}{cc}  1 & -1 \\ -1 & 1 \end{array} \right]
+                \left[      \begin{array}{c} U_1 \\ U_2 \end{array} \right] =
+                \left[      \begin{array}{c} {F_1}^{(2)} \\ {F_2}^{(2)}\end{array} \right]
+\end{equation}</script>
+</div>
+<p>This is essentially the same for all five spring elements except for <span><span class="MathJax_Preview">k_1</span><script type="math/tex">k_1</script></span> which is anchored at one end and so satisfies</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+        k_1 U_1 = {F_1}^{(1)} \nonumber
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+        k_1 U_1 = {F_1}^{(1)} \nonumber
+\end{equation}</script>
+</div>
+<p>The equilibrium relations for the system as a whole are
+\[ \begin{equation}
+    \begin{split}
+        &amp; {F_1}^{(1)} +             {F_1}^{(2)} +           {F_1}^{(3)} +           {F_1}^{(4)} = R_1 \
+        &amp; {F_2}^{(2)} +             {F_2}^{(3)} +           {F_2}^{(5)} = R_2 \
+        &amp; {F_3}^{(4)} +             {F_3}^{(5)} = R_3
+    \end{split}
+    \label{eq:globeq}
+\end{equation} \]</p>
+<p>If we now write all five equilibrium relations in terms of all available degrees of freedom we obtain a form like this</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+        k_2 \left[  \begin{array}{ccc}  k_2 &amp; -k_2 &amp; 0  \\ -k_2 &amp; k_2 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{array} \right]
+                \left[      \begin{array}{c} U_1 \\ U_2 \\ U_3 \end{array} \right] =
+                \left[      \begin{array}{c} {F_1}^{(2)} \\ {F_2}^{(2)} \\ 0\end{array} \right]
+        \nonumber
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+        k_2 \left[  \begin{array}{ccc}  k_2 & -k_2 & 0  \\ -k_2 & k_2 & 0 \\ 0 & 0 & 0 \end{array} \right]
+                \left[      \begin{array}{c} U_1 \\ U_2 \\ U_3 \end{array} \right] =
+                \left[      \begin{array}{c} {F_1}^{(2)} \\ {F_2}^{(2)} \\ 0\end{array} \right]
+        \nonumber
+\end{equation}</script>
+</div>
+<p>which can also be written
+\begin{equation}
+    \mathbf{K}^{(2)}\mathbf{U} = \mathbf{F}^{(2)}
+    \nonumber
+\end{equation}</p>
+<p>in each case.</p>
+<p>Thus the global equilibrium requirement of \ref{eq:globeq} become
+\begin{equation}
+    \mathbf{K}\mathbf{U} = \mathbf{R}
+    \nonumber
+\end{equation}
+where
+\begin{equation}
+    \mathbf{K} = \left[
+    \begin{array}{ccc}
+        (k_1 + k_2 +k_3 + k_4) &amp; -(k_2+k_3) &amp; -k_4 \
+        -(k_2+k_3) &amp; (k_2 + k_3+k_4) &amp; -k_5 \
+        -k_4 &amp; -k_5 &amp; (k_4 + k_5)
+    \end{array}
+    \right]
+    \nonumber
+\end{equation}</p>
+<p>Note, by the way, that $ \mathbf{K}$ is symmetric. An important observation is that
+\begin{equation}
+    \mathbf{K} = \sum_{i=1}^{5} \mathbf{K}^{(i)}
+    \nonumber
+\end{equation}</p>
+<p>The individual element stiffnesses can be summed to form a global stiffness matrix. A symmetric, positive definite matrix problem can be solved in numerous different ways, many of which are easy to look up in textbooks !
+A very simple problem like this has captured much of what we need to do in arbitrarily complex finite element computations. The construction of local element equilbrium problems based on the interaction of each available degree of freedom with every other is followed by the assembly into a global problem by summing the contributions of the individual elements.</p>
+<p>Note that the formulation of the local equilibrium conditions are done in a symmetric manner (if we change this degree of freedom how does the balance change, and then what if we change this degree of freedom ?) rather than trying to simplify the system.</p>
+<p>The degrees of freedom are related by elastic spring constants here. In our more abstract formulations we will replace spring constants by coefficients obtained from the variational method but the form is {\em exactly the same}.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../js/mathjax-local-config.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script type="text/javascript" defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

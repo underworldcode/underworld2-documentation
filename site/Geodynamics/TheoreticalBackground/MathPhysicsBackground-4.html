@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Louis Moresi">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>MathPhysicsBackground 4 - Underworld - A Geodynamics Modelling Code</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "MathPhysicsBackground 4";
+    var mkdocs_page_input_path = "Geodynamics/TheoreticalBackground/MathPhysicsBackground-4.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="icon icon-home"> Underworld - A Geodynamics Modelling Code</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Underworld</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../index.html">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../StartHere.md">Getting Started</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Numerical Modelling Primer</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Numerical/Introduction.html">Introduction</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Geodynamics</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../Mathematics.md">Mathematical Background</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Underworld - A Geodynamics Modelling Code</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>MathPhysicsBackground 4</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>\[
+\require{color}
+\newcommand{\dGamma}{\mathbf{d}\boldsymbol{\Gamma}}
+\newcommand{\erfc}{\mbox{\rm erfc}}
+\newcommand{\curly}{\sf }
+\newcommand{\Red}[1]{\textcolor[rgb]{0.7,0.0,0.0}{#1}}
+\newcommand{\Green}[1]{\textcolor[rgb]{0.0,0.7,0.0}{ #1}}
+\newcommand{\Blue}[1]{\textcolor[rgb]{0.0,0.0,0.7}{ #1}}
+\newcommand{\Emerald}[1]{\textcolor[rgb]{0.0,0.7,0.3}{ #1}}
+\newcommand{\curly}
+\]</p>
+<hr />
+<h2 id="rayleigh-taylor-instability-diapirism">Rayleigh-Taylor Instability &amp; Diapirism</h2>
+<hr />
+<p><img alt="" src="../Diagrams/diapirs.png" />{. width="75%" id="rayleigh-taylor"}</p>
+<p><em>Salt diapirs result when a buried layer of salt(a,b) becomes convectively unstable and rises through the overlying sediment layers (c,d). The idealized geometry for the Rayleigh-Taylor instability problem is outlined in the lower diagram</em></p>
+<hr />
+<p>Diapirism is the buoyant upwelling of rock which is lighter than its surroundings. This can include mantle plumes and other purely thermal phenomena but it often applied to compositionally distinct rock masses such as melts infiltrating the crust (in the Archean) or salt rising through denser sediments.</p>
+<p>Salt layers may result from the evaporation of seawater. If subsequent sedimentation covers the salt, a gravitionally unstable configuration results with heavier material (sediments) on top of light material (salt). The rheology of salt is distinctly non-linear and also sensitive to temperature. Once buried, the increased temperature of the salt layer causes its viscosity to decrease to the point where instabilities can grow. Note, since there is always a strong density contrast between the two rock types, the critical Rayleigh number argument does not apply -- this situation is always unstable, but instabilities can only grow at a reasonable rate once the salt has become weak.</p>
+<p>The geometry is outlined above in the <a href="#rayleigh-taylor">Figure above</a> . We suppose initially that the surface is slightly perturbed with a form of</p>
+<p>\begin{equation} \nonumber
+    w_m = w_{m0} \cos kx
+\end{equation}</p>
+<p>where \( k \) is the wavenumber, \( k=2\pi / \lambda \), \( \lambda \) being the wavelength of the disturbance. We assume that the magnitude of the disturbance is always much smaller than the wavelength.</p>
+<p>The problem is easiest to solve if we deal with the biharmonic equation for the stream function. Experience leads us to try to separate variables and look for solutions of the form</p>
+<p>\begin{equation} \nonumber
+    \psi = \left( A \sin kx + B \cos kx \right ) Y(y)
+\end{equation}</p>
+<p>where the function <span><span class="MathJax_Preview">Y</span><script type="math/tex">Y</script></span> is to be determined. The form we have chosen for \(w_m\) in fact means <span><span class="MathJax_Preview">A=1,B=0</span><script type="math/tex">A=1,B=0</script></span> which we can assume from now on to simplify the algebra.</p>
+<p>Substituting the trial solution for <span><span class="MathJax_Preview">\psi</span><script type="math/tex">\psi</script></span> into the biharmonic equation gives</p>
+<p>\begin{equation} \nonumber
+    \frac{d^4 Y}{d y^4} -2k^2 \frac{d^2 Y}{dy^2} +k^4 Y = 0
+\end{equation}</p>
+<p>which has solutions of the form</p>
+<p>\begin{equation} \nonumber
+    Y = A \exp(m y)
+\end{equation}</p>
+<p>where <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is an arbitrary constant. Subtituting gives us an equation for <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>
+\begin{equation} \nonumber
+    m^4 - 2 k^2 m^2 + k^4 = (m^2 - k<sup>2)</sup>2 = 0
+    \label{eq:diapaux}
+\end{equation}<br />
+or</p>
+<p>\begin{equation} \nonumber
+    m = \pm k
+\end{equation}</p>
+<p>Because we have degenerate eigenvalues (i.e. of the four possible solutions to the auxilliary equation (\ref{eq:diapaux}), two pairs are equal) we need to extend the form of the solution to</p>
+<p>\begin{equation} \nonumber
+    Y = (By+A) \exp(m y)
+\end{equation}</p>
+<p>to give the general form of the solution in this situation to be</p>
+<p>\begin{equation}
+    \psi = \sin kx \left ( A e ^ {- ky} + B y e ^ {- ky} + C e ^ {ky} + D y e ^ {ky} \right )
+\end{equation}</p>
+<p>or, equivalently,</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+    \psi = \sin kx \left ( A _ 1 \cosh ky + B _ 1 \sinh ky + C _ 1 y \cosh ky + D _ 1 y \sinh ky  \right )
+    \label{eq:biharmsoln1}  
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+    \psi = \sin kx \left ( A _ 1 \cosh ky + B _ 1 \sinh ky + C _ 1 y \cosh ky + D _ 1 y \sinh ky  \right )
+    \label{eq:biharmsoln1}  
+\end{equation}</script>
+</div>
+<p>or, equivalently</p>
+<div>
+<div class="MathJax_Preview">\begin{equation}
+    \psi = \sin kx \left ( A _ 1 \cosh ky + B _ 1 \sinh ky + C _ 1 y \cosh ky + D _ 1 y \sinh ky  \right )
+    \label{eq:biharmsoln2}
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation}
+    \psi = \sin kx \left ( A _ 1 \cosh ky + B _ 1 \sinh ky + C _ 1 y \cosh ky + D _ 1 y \sinh ky  \right )
+    \label{eq:biharmsoln2}
+\end{equation}</script>
+</div>
+<p>This equation applies in each of the layers separately. We therefore need to find two sets of constants <span><span class="MathJax_Preview">\{A_1,B_1,C_1,D_1\}</span><script type="math/tex">\{A_1,B_1,C_1,D_1\}</script></span> and <span><span class="MathJax_Preview">\{A_2,B_2,C_3,D_4\}</span><script type="math/tex">\{A_2,B_2,C_3,D_4\}</script></span> by the application of suitable boundary conditions. These are known in terms of the velocities in each layer, <span><span class="MathJax_Preview">\mathbf{v}_1 = \mathbf{i} u_1 +\mathbf{j} v_1</span><script type="math/tex">\mathbf{v}_1 = \mathbf{i} u_1 +\mathbf{j} v_1</script></span> and <span><span class="MathJax_Preview">\mathbf{v}_2 = \mathbf{i} u_2 +\mathbf{j} v_2</span><script type="math/tex">\mathbf{v}_2 = \mathbf{i} u_2 +\mathbf{j} v_2</script></span>:</p>
+<p>\begin{align}
+        u_1 = v_1 &amp;= 0 \;\;\; \text{ on } \;\;\; y = -b \\
+        u_2 = v_2 &amp;= 0 \;\;\; \text{ on } \;\;\; y = b
+\end{align}</p>
+<p>together with a continuity condition across the interface (which we assume is imperceptibly deformed}</p>
+<p>\[
+\begin{equation} \nonumber
+        u_1 = u_2  \;\;\; \text{ and } \;\;\;
+        v_1 = v_2  \;\;\; \text{ on } \;\;\; y = 0
+\end{equation}
+\]</p>
+<p>The shear stress (\( \sigma_{xy}\) ) should also be continuous across the interface, which, if we assume equal viscosities, gives</p>
+<p>\begin{equation} \nonumber
+    \frac{\partial u_1}{\partial y} + \frac{\partial v_1}{\partial x} =
+    \frac{\partial u_2}{\partial y} + \frac{\partial v_2}{\partial x}
+    \;\;\; \text{on} \;\;\; y = 0
+\end{equation}</p>
+<p>and, to simplify matters, if the velocity is continuous across <span><span class="MathJax_Preview">y=0</span><script type="math/tex">y=0</script></span> then any velocity derivatives in the <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> direction evaluated at <span><span class="MathJax_Preview">y=0</span><script type="math/tex">y=0</script></span> will also be continuous (i.e. <span><span class="MathJax_Preview">\partial v_2 / \partial x = \partial v_1 / \partial x</span><script type="math/tex">\partial v_2 / \partial x = \partial v_1 / \partial x</script></span>). The expressions for velocity in terms of the solution (\ref{eq:biharmsoln2}) are</p>
+<p>\begin{align}
+        u  = -\frac{\partial \psi}{\partial y} &amp; = -\sin kx \left(
+                        (A_1 k + D_1 + C_1 k y) \sinh ky + (B_1 k + C_1 + D_1 ky) \cosh ky  \right) \\
+        v  = \frac{\partial \psi}{\partial x} &amp; = k \cos kx \left(
+                        (A_1 +C_1 y)\cosh ky + (B_1 +D_1 y)  \sinh ky   \right)
+\end{align}</p>
+<p>From here to the solution requires much tedious rearrangement, and the usual argument based on the arbitrary choice of wavenumber <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> but we finally arrive at</p>
+<p>\begin{multline}
+    \psi_1 = A_1 \sin kx \cosh ky + \\
+                    A_1 \sin kx \left[
+                        \frac{y}{k b^2} \tanh kb \sinh ky +
+                                \left( \frac{y}{b} \cosh ky    \frac{1}{kb} \sinh ky \right) \cdot
+                                \left( \frac{1}{kb} +
+                                \frac{1}{\sinh bk \cosh bk} \right) \right] \times \\
+                    \left[ \frac{1}{\sinh bk \cosh bk} - \frac{1}{(b<sup>2k</sup>2} \tanh bk \right] ^{-1}
+    \label{eq:raytays1}
+\end{multline}</p>
+<p>The stream function for the lower layer is found by replacing <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> with <span><span class="MathJax_Preview">-y</span><script type="math/tex">-y</script></span> in this equation.    This is already a relatively nasty expression, but we haven't finished since the constant <span><span class="MathJax_Preview">A_1</span><script type="math/tex">A_1</script></span> remains. This occurs because we have so far considered the form of flows which satisfy all the boundary conditions but have not yet considered what drives the flow in each layer.</p>
+<p>To eliminate <span><span class="MathJax_Preview">A_1</span><script type="math/tex">A_1</script></span>, we have to consider the physical scales inherent in the problem itself. We are interested (primarily) in the behaviour of the interface which moves with a velocity <span><span class="MathJax_Preview">\partial w / \partial t</span><script type="math/tex">\partial w / \partial t</script></span>. As we are working with small deflections of the interface,</p>
+<p>\begin{equation} \nonumber
+    \frac{\partial w}{\partial t} = \left. v \right| _ {y=0}
+\end{equation}  </p>
+<!-- %% FIGURE: sketch of salt diapir formation
+\begin{figure}[h]
+    \begin{center}
+        %\epsfxsize=10cm \epsfbox{:../Diagrams:diapir2.eps}
+        \includegraphics[width=100mm]{../Diagrams/diapir2}
+        \caption[]{
+            The restoring force for a stable layering is proportional to
+            the excess density when a fluid element is displaced across
+            the boundary}
+        \label{fig:raytay2}
+    \end{center}
+\end{figure} -->
+
+<hr />
+<p><img alt="" src="../Diagrams/diapir2.png" />{. width="75%" id="rayleigh-taylor2"}</p>
+<p><em>The restoring force for a stable layering is proportional to the excess density when a fluid element is displaced across the boundary</em></p>
+<hr />
+<p>Consider what happens when the fluid above the interface is lighter than the fluid below -- this situation is stable so we expect the layering to be preserved, and if the interface is disturbed the disturbance to decay. This implies that there must be a restoring force acting on  an element of fluid which is somehow displaced across the boundary at <span><span class="MathJax_Preview">y=0</span><script type="math/tex">y=0</script></span> <a href="#rayleigh-taylor2">(Figure above)</a>.</p>
+<p>This restoring force is due to the density difference between the displaced material and the layer in which it finds itself. The expression for the force is exactly that from Archimedes principle which explains how a boat can float (only in the opposite direction)</p>
+<div>
+<div class="MathJax_Preview">\begin{equation} \nonumber
+    \left. F_2 \right| _ {y=0} = \delta x g w (\rho _ 2 - \rho _ 1)
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation} \nonumber
+    \left. F_2 \right| _ {y=0} = \delta x g w (\rho _ 2 - \rho _ 1)
+\end{equation}</script>
+</div>
+<p>which can be expressed as a normal stress difference (assumed to apply, once again, at the boundary). The viscous component of the normal stress turns out to be zero -- proven by evaluating <span><span class="MathJax_Preview">\partial v / \partial y</span><script type="math/tex">\partial v / \partial y</script></span> at <span><span class="MathJax_Preview">y=0</span><script type="math/tex">y=0</script></span> using the expression for \( \phi \) in equation (\ref{eq:raytays1}). Thus the restoring stress is purely pressure</p>
+<p>\[
+\begin{equation} \nonumber
+    \left. P_2 \right| _ {y=0} = g w (\rho _ 2 - \rho _ 1)
+\end{equation}
+\]</p>
+<p>The pressure in terms of the solution (so far) for <span><span class="MathJax_Preview">\psi</span><script type="math/tex">\psi</script></span> is found from the equation of motion in the horizontal direction (substituting the stream function formulation) and is then equated to the restoring pressure above.
+\[
+\begin{equation} \nonumber (\rho_1-\rho_2) g w = -\frac{4 \eta k A_1}{b} \cos kx
+            \left(\frac{1}{kb} + \frac{1}{\sinh bk \cosh bk} \right) \cdot
+            \left(   \frac{1}{\sinh bk \cosh bk} - \frac{1}{(b<sup>2k</sup>2} \tanh bk \right)^{-1}
+\end{equation}
+\]
+which allows us to substitute for <span><span class="MathJax_Preview">A_1</span><script type="math/tex">A_1</script></span> in our expression for <span><span class="MathJax_Preview">\partial w / \partial t</span><script type="math/tex">\partial w / \partial t</script></span> above. Since <span><span class="MathJax_Preview">A_1</span><script type="math/tex">A_1</script></span> is independent of <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>, we can see that the solution for <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> will be of a growing or decaying exponential form with growth/decay constant coming from the argument above.</p>
+<p>\[
+\begin{equation} \nonumber
+    w(t) = w_0 \exp((t-t_0)/\tau)
+\end{equation}  \]
+where
+\[ \begin{equation} \nonumber
+    \tau = \frac{4 \eta}{(\rho_1-\rho_2) g b} \left( \frac{1}{kb} + \frac{1}{\sinh bk \cosh bk} \right) \cdot
+                \left(   \frac{1}{k<sup>2b</sup>2} \tanh kb - \frac{1}{\sinh kb \cosh kb}     \right)^{-1}
+\end{equation}
+\]</p>
+<p>So, finally, an answer -- the rate at which instabilities on the interface between two layers will grow (or shrink) which depends on viscosity, layer depth and density differences, together with the geometrical consideration of the layer thicknesses.</p>
+<p>A stable layering results from light fluid resting on heavy fluid; a heavy fluid resting on a light fluid is always unstable (no critical Rayleigh number applies) although the growth rate can be so small that no deformation occurs in practice. The growth rate is also dependent on wavenumber. There is a minimum in the growth time as a function of dimensional wavenumber which occurs at <span><span class="MathJax_Preview">k b = 2.4</span><script type="math/tex">k b = 2.4</script></span>, so instabilities close to this wavenumber are expected to grow first and dominate.</p>
+<p>Remember that this derivation is simplified for fluids of equal viscosity, and layers of identical depth. Remember also that the solution is for {\rm infinitessimal} deformations of the interface. If the deformation grows then the approximations of small deformation no longer hold. This gives a clue as to how difficulties dealing with the advection term of the transport equations arise. At some point it becomes impossible to obtain meaningful results without computer simulation. However, plenty of further work has already been done on this area for non-linear fluids, temperature dependent viscosity \&amp;c and the solutions are predictably long and tedious to read, much less solve. When the viscosity is not constant, the use of a stream function notation is not particularly helpful as the biharmonic form no longer appears.
+\Emerald{(e.g. read work by Ribe, Houseman et al.)}</p>
+<p>The methodology used here is instructive, as it can be used in a number of different applications to related areas. The equations are similar, the boundary conditions different.</p>
+<h4 id="post-glacial-rebound">Post-Glacial Rebound</h4>
+<hr />
+<p><img alt="" src="../Diagrams/postglac.png" />{. width="75%" id="postglacial-relaxation"}</p>
+<p><em>The relaxation of the Earth's surface after removal of an ice load</em></p>
+<hr />
+<p>In the postglacial rebound problem, consider a viscous half space with an imposed topography at <span><span class="MathJax_Preview">t=0</span><script type="math/tex">t=0</script></span>. The ice load is removed at <span><span class="MathJax_Preview">t=0</span><script type="math/tex">t=0</script></span> and the interface relaxes back to its original flat state.</p>
+<p>This can be studied one wavenumber at a time --- computing a decay rate for each component of the topography. The intial loading is computed from the fourier transform of the ice bottom topography. The system is similar to that of the diapirs except that the loading is now applied to one surface rather than the interface between two fluids.</p>
+<h4 id="phase-changes-in-the-mantle">Phase Changes in the mantle</h4>
+<p>A different interface problem is that of mantle phase changes. Here a bouyancy anomaly results if the phase change boundary is distorted. This can result from advection normal to the boundary bringing cooler or warmer material across the boundary.</p>
+<p>The buoyancy balance argument used above can be recycled here to determine a scaling for the ability of plumes/downwellings to cross the phase boundary.</p>
+<h4 id="sensitivity-kernels-for-surface-observables">Sensitivity Kernels for Surface Observables</h4>
+<p>The solution method used for the Rayleigh Taylor problem can also be used in determining spectral Green's functions for mantle flow in response to thermal perturbations. This is a particularly abstract application of the identical theory.</p>
+<!-- TODO: add references -->
+
+<h3 id="folding-of-layered-viscous-medium">Folding of Layered (Viscous) Medium</h3>
+<hr />
+<p><img alt="" src="../Diagrams/fold.png" />{. width="75%" id="folding-layer"}</p>
+<p><em>Instability in a thin, viscous layer compressed from both ends</em></p>
+<hr />
+<p>If a thin viscous layer is compressed from one end then it may develop buckling instabilities in which velocities grow perpendicular to the plane of the layer. If the layer is embedded between two semi-infinite layers of viscous fluid with viscosity much smaller than the viscosity of the layer, then Biot theory tells us the wavelength of the initial buckling instability, and the rate at which it grows.</p>
+<p>The fold geometry evolves as
+\[
+\begin{equation} \nonumber
+    w=w_m \cos(kx) e^{\frac{t}{\tau_a}}
+\end{equation}
+\]
+where
+\[
+\begin{equation} \nonumber
+    \tau_a = \frac{1}{\bar{P}}\left[ \frac{4 \eta_0}{k} + \frac{\eta_1 h<sup>3}{3k</sup>2} \right]
+\end{equation}
+\]
+and the fastest growing wavenumber is
+\[
+\begin{equation} \nonumber
+    k = \frac{6}{h}\left( \frac{\eta_1}{\eta_0} \right)^{\frac{1}{3}}
+\end{equation}
+\]</p>
+<p>For large deformations we eventually must resort to numerical simulation.</p>
+<!-- TODO: add references -->
+
+<h3 id="gravity-currents">Gravity Currents</h3>
+<p><img alt="A gravity current is the spreading of a dense fluid under its own weight across a horizontal surface (or a buoyant fluid under a surface). Open the fridge door and the cold air falls out as a gravity current." src="../Diagrams/gravcurr.png" /></p>
+<p>Gravity currents can occur when a viscous fluid flows under its own weight as shown in the <a href="#gravity-current">Figure above</a>.</p>
+<p>We assume that the fluid has constant viscosity, <span><span class="MathJax_Preview">\eta</span><script type="math/tex">\eta</script></span> and that the length of the current is considerably greater than its height. The fluid is embedded in a low viscosity medium of density <span><span class="MathJax_Preview">\rho-\Delta \rho</span><script type="math/tex">\rho-\Delta \rho</script></span> where <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span> is the density of the fluid itself.</p>
+<p>The force balance is between buoyancy and viscosity. The assumptions of geometry allow us to simplify the Stokes equation by assuming horizontal pressure gradients due to the surface slope drive the flow.</p>
+<p>\[
+\begin{equation} \nonumber
+        \nabla p = \eta\nabla^2 u \approx   g \Delta \rho \frac{\partial h}{\partial x}<br />
+\end{equation}
+\]</p>
+<p>We assume near-zero shear stress at the top of the current to give
+\[
+\begin{equation} \nonumber
+        \frac{\partial u}{\partial z} (x,h,t) = 0
+\end{equation}
+\]
+and zero velocity at the base of the current. Hence
+\[
+\begin{equation} \nonumber
+    u(x,z,t) = -\frac{1}{2} \frac{g \Delta \rho}{\eta} \frac{\partial h}{\partial x}  z(2h-z)
+\end{equation}
+\]</p>
+<p>Continuity integrated over depth implies
+\[ \begin{equation} \nonumber
+    \frac{\partial h}{\partial t} + \frac{\partial }{\partial x} \int_0^h u dz = 0
+\end{equation}  \]
+Combining these equations gives
+\[
+\begin{equation} \nonumber
+    \frac{\partial h}{\partial t} -\frac{1}{3} \frac{g \Delta \rho}{\eta}
+         \frac{\partial }{\partial x}  \left( h^3 \frac{\partial h}{\partial x} \right) = 0
+\end{equation}
+\]
+Finally, a global constraint fixes the total amount of fluid at any given time
+\[
+\begin{equation} \nonumber
+    \int_0^{x_N(t)} h(x,t)dx = qt^\alpha
+\end{equation}
+ \]
+The latter term being a fluid source at the origin, and <span><span class="MathJax_Preview">x_ {N(t)}</span><script type="math/tex">x_ {N(t)}</script></span> the location of the front of the current. A similarity variable can be used to transform this problem:
+\[
+\begin{equation} \nonumber
+    \nu = \left( \frac{1}{3} g\Delta \rho q^3 / \eta \right)^{-\frac{1}{5}} x t^{-(3\alpha +1) / 5}
+\end{equation}
+\]
+giving a solution of the form
+\[
+\begin{equation} \nonumber
+    h(x,t) = \nu_N^{2/3} (3q^2 \eta / (g\Delta\rho))^{1/5} t^{(2\alpha -1) / 5} \phi(\nu/\nu_N)
+\end{equation}
+\]
+where <span><span class="MathJax_Preview">\nu_N</span><script type="math/tex">\nu_N</script></span> is the value of <span><span class="MathJax_Preview">\nu</span><script type="math/tex">\nu</script></span> at <span><span class="MathJax_Preview">x=x_N(t)</span><script type="math/tex">x=x_N(t)</script></span>. Substituting into the equation for <span><span class="MathJax_Preview">\partial h / \partial t</span><script type="math/tex">\partial h / \partial t</script></span> we find that <span><span class="MathJax_Preview">\phi(\nu/\nu_N)</span><script type="math/tex">\phi(\nu/\nu_N)</script></span> satisfies
+\[
+\begin{equation} \nonumber
+    \phi({\nu}/{\nu_N}) = \left[ \frac{3}{5}(3\alpha+1)\right]^{\frac{1}{3}}
+        \left(1-\frac{\nu}{\nu_N} \right)^{\frac{1}{3}} \left[
+        1 - \frac{3\alpha-4}{24(3\alpha+1)}\left(1-\frac{\nu}{\nu_N} \right) + O \left(1-\frac{\nu}{\nu_N} \right)^2
+        \right]
+\end{equation}
+\]
+Which has an analytic solution if <span><span class="MathJax_Preview">\alpha=0</span><script type="math/tex">\alpha=0</script></span> (only constant sources or sinks)
+\[
+\begin{equation} \nonumber
+    \begin{split}
+    \phi({\nu}/{\nu_N}) &amp;= \left( \frac{3}{10}\right)^{\frac{1}{3}}
+    \left( 1-\left(\frac{\nu}{\nu_N}\right)^2 \right)^{\frac{1}{3}}  \
+    \nu_N &amp;= \left[ \frac{1}{5} \left( \frac{3}{10}\right)^{\frac{1}{3}}  \pi^{\frac{1}{2}}
+    \Gamma (1/3) / \Gamma (5/6) \right]^{-\frac{3}{5}} = 1.411
+    \end{split}
+\end{equation}
+\]
+For all other values of <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> numerical integration schemes must be used for \( \phi \). It is also possible to obtain solutions if axisymmetric geometry is used.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../js/mathjax-local-config.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script type="text/javascript" defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
