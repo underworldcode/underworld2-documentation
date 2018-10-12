@@ -9,7 +9,7 @@ You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder
 
 <!-- This embeds the notebook -->
 
-{{ embed_url("../../nb_html/Underworld_Introduction.html", fname="nb_frame1") }}
+{{ embed_url("../../nb_html/user_guide/01_GettingStarted.html", fname="nb_frame1") }}
 
 ---
 
@@ -18,7 +18,7 @@ You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder
     <p/>Click on the links below to reload the preview with the relevant notebook. Expand the boxes to read
     more about each notebook.
 
-??? note "**Overview** - {{ replace_embedded_url("../../nb_html/user_guide/01_GettingStarted.html",
+???+ note "**Overview** - {{ replace_embedded_url("../../nb_html/user_guide/01_GettingStarted.html",
                         "nb_frame1",  
                         "01_GettingStarted.ipynb") }}"
 
@@ -40,7 +40,6 @@ You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder
                             "03_MeshVariable.ipynb") }}"
 
       <p/>Mesh Variables are unknowns discretised on the structured mesh but they also know about how they should be interpolated, differentiated, integrated.
-
 
 
 ??? note "**Lagrangian (material) point swarms** - {{  

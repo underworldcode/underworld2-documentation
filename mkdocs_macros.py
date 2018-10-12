@@ -77,7 +77,7 @@ def declare_variables(variables, macro):
     @macro
     def nb_mybinder_badge(path2nb):
         url = nb_mybinder_location(path2nb)
-        HTMLtemplate="""<a {url}> <img src='https://mybinder.org/badge.svg'> </a>"""
+        HTMLtemplate="""<a href="{url}"> <img src='https://mybinder.org/badge.svg'> </a>"""
         HTML = HTMLtemplate.format(url=url)
         return HTML
 

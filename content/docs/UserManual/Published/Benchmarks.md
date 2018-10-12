@@ -1,49 +1,134 @@
-Some of these are benchmarks that verify the capabilities of Underworld, others are novel research results
-that arose from work with Underworld.
+##  Benchmark examples
 
-### Moresi and Solomatov 1995 (Benchmark)
+Benchmarks that replicate previous work using the capabilities of Underworld.
+
+You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder_location("notebooks/pulications/00_Pulications.ipynb") }} ). {{ nb_mybinder_badge("notebooks/pulications/00_Pulications.ipynb") }}
+
+---
+
+<!-- This embeds the notebook -->
+
+{{ embed_url("../../nb_html/publications/MoresiSolomatov-1995/MoresiAndSolomatov1995.html", fname="nb_frame1") }}
+
+---
+
+???+ hint "**Preview**"
+
+    <p/>Click on the links below to reload the preview with the relevant notebook. Expand the boxes to read
+    more about each notebook.
+
+
+      - {{ replace_embedded_url(
+        "../../nb_html/publications//MoresiSolomatov-1995/MoresiAndSolomatov1995.html",
+                        "nb_frame1",  
+                        "MoresiAndSolomatov1995.ipynb") }}
+
+      - {{ replace_embedded_url(
+        "../../nb_html/publications/DaviesRawlinson-2014/daviesRawlinson-2014-figDR6.html",
+         "nb_frame1",  
+         "daviesRawlinson-2014-figDR6.ipynb") }}
+
+
+     - {{ replace_embedded_url(
+      "../../nb_html/publications/TosiEtAl-2015/Tosi_Case1.html",
+            "nb_frame1",  
+            "Tosi_Case1.ipynb") }}
+    - {{ replace_embedded_url(
+      "../../nb_html/publications/TosiEtAl-2015/Tosi_Case2.html",
+           "nb_frame1",  
+           "Tosi_Case2.ipynb") }}
+    - {{ replace_embedded_url(
+      "../../nb_html/publications/TosiEtAl-2015/Tosi_Case3.html",
+          "nb_frame1",  
+          "Tosi_Case3.ipynb") }}
+    - {{ replace_embedded_url(
+      "../../nb_html/publications/TosiEtAl-2015/Tosi_Case4.html",
+         "nb_frame1",  
+         "Tosi_Case4.ipynb") }}
+    - {{ replace_embedded_url(
+      "../../nb_html/publications/TosiEtAl-2015/Tosi_Case5a.html",
+         "nb_frame1",  
+         "Tosi_Case5a.ipynb") }}
+
+    - {{ replace_embedded_url(
+     "../../nb_html/publications/OzBenchEtAl-2008/1_OzBenchEtAl-2008.html",
+           "nb_frame1",  
+           "1_OzBenchEtAl-2008.ipynb") }}
+    - {{ replace_embedded_url(
+     "../../nb_html/publications/OzBenchEtAl-2008/2_OzBenchEtAl-2008-fig3.html",
+          "nb_frame1",  
+          "2_OzBenchEtAl-2008-fig3.ipynb") }}
+
+
+
+### Moresi and Solomatov 1995
 
 Stagnant lid convection model that demonstrates how to produce non-dimensional models with
 a temperature dependent (Frank-Kamenetskii) viscosity and how to record Nusselt number and Vrms for a simulation in a way that transfers correctly to a parallel environment. Also demonstrates saving and restarting for long run-times.
 
 Moresi, L. N., and V. S. Solomatov (1995), **Numerical investigation of 2d convection with extremely large viscosity variations**, Phys. Fluids, 7, 2154–2162.
 
-   - [Notebook 1 - convection model](./publications/MoresiSolomatov-1995/MoresiAndSolomatov1995.ipynb)
+???+ note "**Notebook**"
+
+      <p/> {{ replace_embedded_url("../../nb_html/publications//MoresiSolomatov-1995/MoresiAndSolomatov1995.html",
+                        "nb_frame1",  
+                        "MoresiAndSolomatov1995.ipynb") }}
 
 ---
 
-### Davies & Rawlinson, 2014  (Benchmark)
+### Davies & Rawlinson, 2014
 
 {{ figure("../../notebooks/images/DandRexample.png",
   fstyle="float:right; width:50%; border:1px; padding:10px; ",
   istyle="margin-left:10px; width:100%;",
   caption="Figure DR6 of Davies and Rawlinson (2014)") }}
 
-
 This notebook reproduces the 2D instantaneous flow model with a composite Newtonian and non-Newtonian rheology shown in Figure DR6 of Davies and Rawlinson (2014). Rheological parameters are consistent with Karato and Wu (1993), with prefactors chosen to produce a minimum diffusion creep viscosity of $5 x 10^{19}$ Pa.s within the asthenosphere and dislocation creep dominating within the edge driven convection cell.
 
 D. Rhodri Davies and Nicholas Rawlinson, **On the origin of recent intraplate volcanism in Australia**. Geology, December 2014, v. 42, p. 1031-1034, doi:10.1130/G36093.1
 
-   - [Notebook: Figure 6](publications/DaviesRawlinson-2014/daviesRawlinson-2014-figDR6.ipynb)
+???+ note "**Notebook**"
+    <p/> {{ replace_embedded_url(
+     "../../nb_html/publications/DaviesRawlinson-2014/daviesRawlinson-2014-figDR6.html",
+           "nb_frame1",  
+           "daviesRawlinson-2014-figDR6.ipynb") }}
 
 ---
 
 ### Tosi et al, 2015 (Benchmark)
 
+{{ figure("../../notebooks/images/TosiExample.png",
+  fstyle="float:right; width:33%; border:1px; padding:10px; ",
+  istyle="margin-left:10px; width:100%;",
+  caption="") }}
+
+This series of notebooks generates benchmark models from the Tosi et al. (2015) in Underworld2. The Underworld2 results are then directly compared to the results from Table 2 of Tosi et al. (2015) the paper for each case. The notebooks are broken into a general notebook for reproducing the models from scratch and 5 post-analysis notebooks which look at the results Underworld2 gives for each case after running to equilibrium.
 
 Tosi, Nicola and Stein, Claudia and Noack, Lena and Hüttig, Christian and Maierová, Petra and Samuel, Henri and Davies, DR and Wilson, CR and Kramer, SC and Thieulot, Cedric and others. . **A community benchmark for viscoplastic thermal convection in a 2-D square box**, (2015)
 
-<figure>
-  <img src="images/TosiExample.png" width="12%" style="float:right;" >
-</figure>
 
+???+ note "**Notebooks**"
 
-
-   - [Notebook: Case1](publications/TosiEtAl-2015/Tosi_Case1.ipynb)
-   - [Notebook: Case2](publications/TosiEtAl-2015/Tosi_Case2.ipynb)
-   - [Notebook: Case3](publications/TosiEtAl-2015/Tosi_Case3.ipynb)
-   - [Notebook: Case4](publications/TosiEtAl-2015/Tosi_Case4.ipynb)
-   - [Notebook: Case5a](publications/TosiEtAl-2015/Tosi_Case5a.ipynb)
+     - {{ replace_embedded_url(
+       "../../nb_html/publications/TosiEtAl-2015/Tosi_Case1.html",
+             "nb_frame1",  
+             "Tosi_Case1.ipynb") }}
+     - {{ replace_embedded_url(
+       "../../nb_html/publications/TosiEtAl-2015/Tosi_Case2.html",
+            "nb_frame1",  
+            "Tosi_Case2.ipynb") }}
+     - {{ replace_embedded_url(
+       "../../nb_html/publications/TosiEtAl-2015/Tosi_Case3.html",
+           "nb_frame1",  
+           "Tosi_Case3.ipynb") }}
+     - {{ replace_embedded_url(
+       "../../nb_html/publications/TosiEtAl-2015/Tosi_Case4.html",
+          "nb_frame1",  
+          "Tosi_Case4.ipynb") }}
+     - {{ replace_embedded_url(
+       "../../nb_html/publications/TosiEtAl-2015/Tosi_Case5a.html",
+          "nb_frame1",  
+          "Tosi_Case5a.ipynb") }}
 
 ---
 
@@ -57,8 +142,17 @@ The 3D subduction model has a dense, high viscosity 3 layered plate overlying a 
 
 OzBench, M.; Regenauer-Lieb, K.; Stegman, D. R.; Morra, G.; Farrington, R.; Hale, A.; May, D. A.; Freeman, J.; Bourgouin, L.; Mühlhaus, H. & Moresi, L. **A model comparison study of large-scale mantle-lithosphere dynamics driven by subduction**. Physics of the Earth and Planetary Interiors, 2008, 171, 224-234
 
-   - [Notebook 1 - Setup](publications/OzBenchEtAl-2008/1_OzBenchEtAl-2008.ipynb)
-   - [Notebook 2 - Figure 3](publications/OzBenchEtAl-2008/2_OzBenchEtAl-2008-fig3.ipynb)
+
+???+ note "**Notebooks**"
+
+    - {{ replace_embedded_url(
+     "../../nb_html/publications/OzBenchEtAl-2008/1_OzBenchEtAl-2008.html",
+           "nb_frame1",  
+           "1_OzBenchEtAl-2008.ipynb") }}
+    - {{ replace_embedded_url(
+     "../../nb_html/publications/OzBenchEtAl-2008/2_OzBenchEtAl-2008-fig3.html",
+          "nb_frame1",  
+          "2_OzBenchEtAl-2008-fig3.ipynb") }}
 
 
 ---
