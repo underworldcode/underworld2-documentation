@@ -4,34 +4,21 @@ title: Underworld 2
 
 ![Montage.png](./notebooks/images/Montage.png)
 
-
-{{ embed_url("./nb_html/Underworld_Introduction.html", fname="nb_frame1") }}
-
-
-{{ replace_embedded_url("./nb_html/examples/1_01_Steady_State_Heat.html",
-                        "nb_frame1",  
-                        "1_01_Steady_State_Heat") }}
-
-
-
-
-{{ nb_nbviewer_location("Underworld_Introduction") }}
-
-{{ figure("./notebooks/images/Montage.png",
-          fstyle="float:right; width:100%; border:1px; padding:10px; ",
-          istyle="margin-left:10px; width:50%;",
-          caption="Underworld models") }}
-
 [_Underworld 2_](http://www.underworldcode.org) is a python-friendly version of the Underworld code which provides a programmable and flexible front end to all the functionality of the code running in a parallel HPC environment. This gives signficant advantages to the user, with access to the power of python libraries for setup of complex problems, analysis at runtime, problem steering, and multi physics coupling. While Underworld2 embraces Jupyter Notebooks as the preferred modelling environment, only standard python is required.
 
 The Underworld2 development team is based in Melbourne, Australia at the University of Melbourne and at Monash University led by Louis Moresi. We would like to acknowledge AuScope Simulation, Analysis and Modelling for providing long term funding which has made the project possible. Additional funding for specific improvements and additional functionality has come from the Australian Research Council (http://www.arc.gov.au). The python toolkit was funded by the NeCTAR eresearch_tools program. Underworld was originally developed in collaboration with the Victorian Partnership for Advanced Computing.
 
-Lastest stable release (master branch) [![Build Status](http://130.56.252.251:32779/buildStatus/icon?job=master)](http://130.56.252.251:32779/job/master/)
 
-Development branch - [![Build Status](http://130.56.252.251:32779/buildStatus/icon?job=uw-dev)](http://130.56.252.251:32779/job/uw-dev/)
+| Version | Status |
+| :----   | :----  |
+| Lastest stable release (master branch) | [![Build Status](http://130.56.252.251:32779/buildStatus/icon?job=master)](http://130.56.252.251:32779/job/master/) |
+| Development branch | [![Build Status](http://130.56.252.251:32779/buildStatus/icon?job=uw-dev)](http://130.56.252.251:32779/job/uw-dev/) |
+
+---
 
 Getting Underworld2
 -------------------
+
 The Underworld2 docker container is the recommended method of installation for Windows, Mac OSX and Linux. You will need to install [Docker](https://www.docker.com) on your system. The Underworld docker container is available through the docker hub:
 
 https://hub.docker.com/r/underworldcode/underworld2/

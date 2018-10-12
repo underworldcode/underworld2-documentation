@@ -72,7 +72,7 @@ def declare_variables(variables, macro):
         if not path2nb.endswith(".ipynb"):
             path2nb = path2nb+".ipynb"
 
-        return uw_mybinder_base_url+"?filepath="+path2nb
+        return uw_mybinder_base_url+"?filepath=/tree/content/docs/"+path2nb
 
     @macro
     def nb_mybinder_badge(path2nb):

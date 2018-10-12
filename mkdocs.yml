@@ -1,4 +1,4 @@
-site_name: "Geodynamics with the Underworld Modelling Code"
+site_name: "The Underworld Geodynamics Modelling Code"
 site_author: Louis Moresi
 site_dir: www
 docs_dir: content/docs
@@ -10,32 +10,24 @@ python_module: mkdocs_macros
 #  bar at the top of the page. Either as individual links or as a dropdown menu of links
 
 nav:
-  - Home: index.md
-  - Underworld:
-      - Introduction : Background.md
-      - User's Manual :
-        - Notebooks :
-          - Components of Underworld : UserManual/Examples/Components.md
-          - Worked Examples : UserManual/Examples/WorkedExamples.md
-        - Tutorials:
-          - Convection Models : UserManual/Tutorials/ConvectionModels.md
-          - ViscoElasticity :  UserManual/Tutorials/ViscoElasticity.md
-        - Published Results:
-          - Benchmarks : UserManual/Published/Benchmarks.md
-          - Original Work : UserManual/Published/OriginalPapers.md
-
-  - Numerical Modelling Primer:
-       - Chapter 1 - Introduction      : Numerical/NumericalMethodsPrimer/NumericalMethodsPrimer-1.md
-       - Chapter 2 - Simple Example    : Numerical/NumericalMethodsPrimer/NumericalMethodsPrimer-2.md
-       - Chapter 3 - Advection Example : Numerical/NumericalMethodsPrimer/NumericalMethodsPrimer-3.md
-       - Chapter 4 - Finite Elements 1 : Numerical/NumericalMethodsPrimer/NumericalMethodsPrimer-4.md
-       - Chapter 5 - Finite Elements 2 : Numerical/NumericalMethodsPrimer/NumericalMethodsPrimer-5.md
-       - Chapter 6 - Finite Elements 3 : Numerical/NumericalMethodsPrimer/NumericalMethodsPrimer-6.md
-  - Geodynamics:
-      - Chapter 1 - Introduction    : Geodynamics/TheoreticalBackground/MathPhysicsBackground-1.md
-      - Chapter 2 - Mathematics     : Geodynamics/TheoreticalBackground/MathPhysicsBackground-2.md
-      - Chapter 3 - Convection      : Geodynamics/TheoreticalBackground/MathPhysicsBackground-3.md
-      - Chapter 4 - Other Solutions : Geodynamics/TheoreticalBackground/MathPhysicsBackground-4.md
+- Home: index.md
+- Geodynamics : Geodynamics.md
+- Numerical Methods: Numerics.md
+- User's Manual :
+  - Cookbooks :
+    - Components of Underworld : UserManual/Examples/Components.md
+    - Worked Examples : UserManual/Examples/WorkedExamples.md
+  - Tutorials:
+    - Convection Models : UserManual/Tutorials/ConvectionModels.md
+    - ViscoElasticity :  UserManual/Tutorials/ViscoElasticity.md
+  - Published Results:
+    - Benchmarks : UserManual/Published/Benchmarks.md
+    - Original Work : UserManual/Published/OriginalPapers.md
+- Underworld Resources:
+    - UW2 website : http://www.underworldcode.org
+    - UW2 on Github : https://github.com/underworldcode/underworld2
+    - UW2 API docs : https://underworld2.readthedocs.io/en/latest/underworld.html
+    - Zenodo DOI: https://doi.org/10.5281/zenodo.1436040
 
 #- About Us:
 #    - ''
