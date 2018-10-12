@@ -1,8 +1,7 @@
 ##  Convection Modelling Tutorial
 
 A tutorial original developed for the CIDER 2016 summer programme at the Kavli Institute for
-Theoretical Physics at UC Santa Barbara. This tutorial is meant to be tackled sequentially, starting from notebook zero (Overview).
-
+Theoretical Physics at UC Santa Barbara. This tutorial is meant to be tackled sequentially, starting from notebook zero (Overview). Maintainer: Louis Moresi.
 
 ---
 
@@ -13,7 +12,7 @@ Theoretical Physics at UC Santa Barbara. This tutorial is meant to be tackled se
 
 ---
 
-You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder_location("notebooks/tutorials/ConvectionTutorial.ipynb") }} ) but be aware that
+You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder_location("notebooks/tutorials/ConvectionTutorial/000-Overview.ipynb") }} ) but be aware that
 your work will not be saved unless you download it. You may also run out of time to complete the
 exercises as the mybinder site is a public, shared resource.
 
