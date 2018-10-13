@@ -16,36 +16,33 @@ The Underworld2 development team is based in Melbourne, Australia at the Univers
 
 ---
 
-Getting Underworld2
--------------------
+## Underworld Installation (docker)
 
-The Underworld2 docker container is the recommended method of installation for Windows, Mac OSX and Linux. You will need to install [Docker](https://www.docker.com) on your system. The Underworld docker container is available through the docker hub:
+If you decide to run this tutorial on your own machine and want to build new examples, you can most easily install underworld from the docker container.
 
-https://hub.docker.com/r/underworldcode/underworld2/
-
-Please check our blog page for a writeup on using dockers:
-
-http://www.underworldcode.org/pages/Blog/
-
-If you need to compile Underworld2 (in particular for HPC usage), please refer to COMPILE.md
-
-API documentation is available at http://underworld2.readthedocs.io/
-
-
-Underworld Docker Usage
-------------
-Most new users may wish to use the Kitematic GUI to download and run Underworld. Simply search for 'underworldcode/underworld2' within Kitematic, and then click 'CREATE' to launch a container. You will eventually wish to modify your container settings (again through Kitematic) to enable local folder volume mapping, which will allow you to access your local drives within your container.
+Most new users may wish to use the [Kitematic GUI](https://github.com/docker/kitematic/releases) to download and run Underworld. Simply search for 'underworldcode/underworld2' within Kitematic, and then click 'CREATE' to launch a container. You will eventually wish to modify your container settings (again through Kitematic) to enable local folder volume mapping, which will allow you to access your local drives within your container.
 
 For Linux users, and those who prefer the command line, the following minimal command should be sufficient to access the Underworld2 Jupyter Notebook examples:
 
 ```bash
-   docker run -p 8888:8888 underworldcode/underworld2
+   docker run --rm -p 8888:8888 underworldcode/underworld2
 ```
+
+Navigate to `localhost:8888` to see the notebooks.
+
+## Underworld Installation (native)
+
+For installation on HPC facilities and if you would like a local build, you will need to download, install and compile the Underworld code and the relevant dependencies. A native build can be difficult
+in a non-standard environment and we are currently working on HPC deployments of containers.
+
+For information on how to build, look on the underworld github pages under [docs/install_guides](https://github.com/underworldcode/underworld2/tree/master/docs/install_guides) and also see the [Underworld blog pages](http://www.underworldcode.org/pages/Blog/)
 
 
 Privacy
 -------
-Note that basic usage metrics are dispatched when you use Underworld. To opt out, set the UW_NO_USAGE_METRICS environment variable. See `PRIVACY.md` for full details.                                   
+
+Note that basic usage metrics are dispatched when you use Underworld. We do this to help
+assess the usage of our code which is important in justifying our funding. To opt out, set the UW_NO_USAGE_METRICS environment variable. See `PRIVACY.md` for full details. In the docker environment, we only collect information that the docker version has been run.                                    
 
 Bedtime reading
 ---------------
