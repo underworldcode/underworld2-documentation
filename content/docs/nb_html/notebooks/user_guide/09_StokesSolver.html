@@ -13116,21 +13116,22 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Stokes-Solver">Stokes Solver<a class="anchor-link" href="#Stokes-Solver">&#182;</a></h1><p>We want to solve the following Stokes block system.
-\[
+<h1 id="Stokes-Solver">Stokes Solver<a class="anchor-link" href="#Stokes-Solver">&#182;</a></h1><p>We want to solve the following Stokes block system.</p>
+$$
 \begin{bmatrix}
  K &amp; G \\
  G^T &amp; C
 \end{bmatrix}
 \begin{bmatrix}
-  u\
-  p</p>
-<h1 id="\end{bmatrix}">\end{bmatrix}<a class="anchor-link" href="#\end{bmatrix}">&#182;</a></h1>\begin{bmatrix}
+  u\\
+  p
+\end{bmatrix}
+=
+\begin{bmatrix}
  f\\ 
  h
-\end{bmatrix}<p>.
-\]</p>
-<p>If we apply Gaussian elimination to the above as a 2x2 block matrix system
+\end{bmatrix}.
+$$<p>If we apply Gaussian elimination to the above as a 2x2 block matrix system
 we can write this as:</p>
 $$
 \begin{bmatrix}

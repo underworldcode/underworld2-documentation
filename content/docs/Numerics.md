@@ -19,10 +19,10 @@ Underworld is implemented using the [StGermain](http://www.stgermainproject.org)
 
 [^PIC1]:
 
-    Moresi, L. N., F. Dufour, and H. B. Muhlhaus (2003), A Lagrangian integration point finite element method for large deformation modeling of viscoelastic geomaterials, Journal of Computational Physics, 184(2), 476–497, doi:10.1016/S0021-9991(02)00031-1.
+      Moresi, L. N., F. Dufour, and H. B. Muhlhaus (2003), A Lagrangian integration point finite element method for large deformation modeling of viscoelastic geomaterials, Journal of Computational Physics, 184(2), 476–497, doi:10.1016/S0021-9991(02)00031-1.
 
-    L. Moresi, F. Dufour, and H. B. Muhlhaus. A Lagrangian integration point finite element method for large deformation modeling of viscoelastic geomaterials. Journal Of Computational Physics, 184:476–497, 2003.
+      L. Moresi, F. Dufour, and H. B. Muhlhaus. A Lagrangian integration point finite element method for large deformation modeling of viscoelastic geomaterials. Journal Of Computational Physics, 184:476–497, 2003.
 
 [^Voronoi]:
 
-   Velić, M., D. A. May, and L. N. Moresi (2009), A fast robust algorithm for computing discrete voronoi diagrams, Journal of Mathematical Modelling and …, doi:10.1007/s10852-008-9097-6.
+     Velić, M., D. A. May, and L. N. Moresi (2009), A fast robust algorithm for computing discrete voronoi diagrams, Journal of Mathematical Modelling and …, doi:10.1007/s10852-008-9097-6.
