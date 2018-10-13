@@ -13,7 +13,7 @@ You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder
 
 ---
 
-???+ hint "**Preview**"
+!!! hint "**Preview**"
 
     <p/>Click on the links below to reload the preview with the relevant notebook. Expand the boxes to read
     more about each notebook.
@@ -115,7 +115,7 @@ You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder
 
 
 
-???+ hint "**More Advanced Examples**"
+!!! hint "**More Advanced Examples**"
 
     <p/>The following examples introduce more complex workflows, complicated rheology. It is certainly worthwhile addressing these ones after the section above
 

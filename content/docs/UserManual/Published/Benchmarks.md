@@ -12,7 +12,7 @@ You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder
 
 ---
 
-???+ hint "**Preview**"
+!!! hint "**Preview**"
 
     <p/>Click on the links below to reload the preview with the relevant notebook. Expand the boxes to read
     more about each notebook.
@@ -87,7 +87,7 @@ This notebook reproduces the 2D instantaneous flow model with a composite Newton
 
 D. Rhodri Davies and Nicholas Rawlinson, **On the origin of recent intraplate volcanism in Australia**. Geology, December 2014, v. 42, p. 1031-1034, doi:10.1130/G36093.1
 
-???+ note "**Notebook**"
+??? note "**Notebook**"
     <p/> {{ replace_embedded_url(
      "../../nb_html/publications/DaviesRawlinson-2014/daviesRawlinson-2014-figDR6.html",
            "nb_frame1",  
@@ -107,7 +107,7 @@ This series of notebooks generates benchmark models from the Tosi et al. (2015) 
 Tosi, Nicola and Stein, Claudia and Noack, Lena and Hüttig, Christian and Maierová, Petra and Samuel, Henri and Davies, DR and Wilson, CR and Kramer, SC and Thieulot, Cedric and others. . **A community benchmark for viscoplastic thermal convection in a 2-D square box**, (2015)
 
 
-???+ note "**Notebooks**"
+??? note "**Notebooks**"
 
      - {{ replace_embedded_url(
        "../../nb_html/publications/TosiEtAl-2015/Tosi_Case1.html",
@@ -143,7 +143,7 @@ The 3D subduction model has a dense, high viscosity 3 layered plate overlying a 
 OzBench, M.; Regenauer-Lieb, K.; Stegman, D. R.; Morra, G.; Farrington, R.; Hale, A.; May, D. A.; Freeman, J.; Bourgouin, L.; Mühlhaus, H. & Moresi, L. **A model comparison study of large-scale mantle-lithosphere dynamics driven by subduction**. Physics of the Earth and Planetary Interiors, 2008, 171, 224-234
 
 
-???+ note "**Notebooks**"
+??? note "**Notebooks**"
 
     - {{ replace_embedded_url(
      "../../nb_html/publications/OzBenchEtAl-2008/1_OzBenchEtAl-2008.html",

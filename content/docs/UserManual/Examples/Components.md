@@ -3,7 +3,9 @@
 This section of the Underworld User Guide is a great introduction to the basic building blocks of the software suite. We cover the individual concepts in the code and provide simple notebooks to illustrate how to use them.
 
 
-You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder_location("notebooks/user_guide/00_Components.ipynb") }} ). {{ nb_mybinder_badge("notebooks/user_guide/00_Components.ipynb") }}
+You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder_location("notebooks/user_guide/00_Components.ipynb") }} ).
+
+{{ nb_mybinder_badge("notebooks/user_guide/00_Components.ipynb") }}
 
 ---
 
@@ -13,7 +15,7 @@ You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder
 
 ---
 
-???+ hint "**Preview**"
+!!! hint "**Preview**"
 
     <p/>Click on the links below to reload the preview with the relevant notebook. Expand the boxes to read
     more about each notebook.
@@ -86,7 +88,7 @@ You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder
     <p/> The `gLucifer` module is a parallel version of the fast, particle-based `lavavu` visualisation
     toolbox that we use to render images and create object databases during large parallel runs.
 
-    ??? danger "Interactivity in Notebooks"
+    !!! danger "Interactivity in Notebooks"
 
         <p/> To view the interactive aspects of lavavu running in a notebook, you will need to open the live version of the documentation.
 

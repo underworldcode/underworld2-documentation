@@ -59,7 +59,7 @@ These findings explain the Cenozoic slowdown of the Farallon plate and the decre
 Schellart, W. P. and Stegman, D. R. and Farrington, R. J. and Freeman, J. and Moresi, L. **Cenozoic Tectonics of Western North America Controlled by Evolving Width of Farallon Slab**. Science, 16 July 2010, Vol. 329, Issue 5989, pp. 316-319
 
 
-???+ note "**Notebooks**"
+??? note "**Notebooks**"
 
      - {{ replace_embedded_url(
        "../../nb_html/publications/SchellartEtAl-2010/1_SchellartEtAl-Science-2010.html",
@@ -86,7 +86,7 @@ This notebook models a two dimensional viscoelastic subducting plate, as outline
 Farrington, R. J., L.-N. Moresi, and F. A. Capitanio (2014), **The role of viscoelasticity in subducting plates**, Geochem. Geophys. Geosyst., 15, 4291–4304.
 
 
-???+ note "**Notebook**"
+??? note "**Notebook**"
     - {{ replace_embedded_url(
     "../../nb_html/publications/FarringtonEtAl-2014/FarringtonEtAl-2014.html",
           "nb_frame1",  
@@ -133,7 +133,7 @@ Delamination involves the peeling away of the dense material from the continenta
 Beall, A. P., L. Moresi, and T. Stern (2017), **Dripping or delamination? A range of mechanisms for removing the lower crust or lithosphere**, Geophys. J. Int., 210(2), 671–692, doi:10.1093/gji/ggx202.
 
 
-???+ note "**Notebook**"
+??? note "**Notebook**"
        - {{ replace_embedded_url(
        "../../nb_html/publications/DrippingDelamination-BeallEtAl-2017/dripping_or_delamination.html",
              "nb_frame1",  

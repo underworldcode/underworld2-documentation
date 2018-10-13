@@ -47,6 +47,10 @@ assess the usage of our code which is important in justifying our funding. To op
 Bedtime reading
 ---------------
 
+These papers explain the theory and implementation for Underworld. The code itself can also be cited via the zenodo DOI. There is a master DOI for all releases and releases after 2.6.0 are automatically given a DOI under the master. If you are using a development branch and wish to obtain a DOI for your specific version we ask that you [contact us](mailto:anyone@underworldcode.org) to make an interim release under the master DOI.
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1436039.svg)](https://doi.org/10.5281/zenodo.1436039)
+
 Moresi, L., Dufour, F., and Muhlhaus, H.B., 2002, Mantle convection modeling with viscoelastic/brittle lithosphere: Numerical methodology and plate tectonic modeling: Pure And Applied Geophysics, v. 159, no. 10, p. 2335–2356, doi: 10.1007/s00024-002-8738-3.
 
 Moresi, L., Dufour, F., and Muhlhaus, H.B., 2003, A Lagrangian integration point finite element method for large deformation modeling of viscoelastic geomaterials: Journal of Computational Physics, v. 184, no. 2, p. 476–497.
