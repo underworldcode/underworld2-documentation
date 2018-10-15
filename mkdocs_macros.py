@@ -23,16 +23,17 @@ def declare_variables(variables, macro):
 
 
     @macro
-    def embed_url(name, nb_height="400px", fname="nb_frame"):
+    def embed_url_changable(name, nb_height="600px", fname="nb_frame"):
 
 ## The substitution is messy because of the { } in the Javascript. this
 ## code creates a script to replace the embedded URL in the frame using the
 ## name of the frame itself.
 
-        HTMLtemplate = \
-"""
-<iframe height={nb_height} width="100%" src="{name}" id="{fname}">
+        HTMLtemplate = """<div id="wrap" style="height:{nb_height}">
+<iframe src="{name}" id="{fname}"
+        style="width:150%; transform: scale(0.666); transform-origin: top left; height:150%; border=0px; frameBorder=0px;">
 </iframe>
+</div>
 <script language="JavaScript" type="text/javascript">
 <!--
   function changeFrame_{fname}(newPage) ??<
@@ -47,6 +48,19 @@ def declare_variables(variables, macro):
         HTML = HTML.replace("??>","}")
 
         return HTML
+
+    @macro
+    def embed_url(name, nb_height="600px", fname="nb_frame"):
+
+## The substitution is messy because of the { } in the Javascript. this
+## code creates a script to replace the embedded URL in the frame using the
+## name of the frame itself.
+
+        HTMLtemplate = """<div id="wrap" style="height:{nb_height}"><iframe src="{name}" id="{fname}" style="width:150%; transform: scale(0.666); transform-origin: top left; height:150%; border=0px; frameBorder=0px;"></iframe></div>"""
+        HTML = HTMLtemplate.format(nb_height=nb_height, name=name, fname=fname)
+        return HTML
+
+
 
     @macro
     def replace_embedded_url(name, fname, linktext):
