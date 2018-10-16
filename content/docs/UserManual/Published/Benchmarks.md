@@ -2,63 +2,12 @@
 
 Benchmarks that replicate previous work using the capabilities of Underworld.
 
-You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder_location("notebooks/pulications/00_Pulications.ipynb") }} ). {{ nb_mybinder_badge("notebooks/pulications/00_Pulications.ipynb") }}
+!!! hint "**Note**"
 
----
+        <p/>Expand the boxes below to read more about each notebook and to view a preview.
+        You can **run** these notebooks live on [http://www.mybinder.org]( {{nb_mybinder_location("notebooks/user_guide/00_Components.ipynb") }} ).
 
-<!-- This embeds the notebook -->
-
-{{ embed_url("../../nb_html/publications/MoresiSolomatov-1995/MoresiAndSolomatov1995.html", fname="nb_frame1") }}
-
----
-
-!!! hint "**Preview**"
-
-    <p/>Click on the links below to reload the preview with the relevant notebook. Expand the boxes to read
-    more about each notebook.
-
-
-      - {{ replace_embedded_url(
-        "../../nb_html/publications//MoresiSolomatov-1995/MoresiAndSolomatov1995.html",
-                        "nb_frame1",  
-                        "MoresiAndSolomatov1995.ipynb") }}
-
-      - {{ replace_embedded_url(
-        "../../nb_html/publications/DaviesRawlinson-2014/daviesRawlinson-2014-figDR6.html",
-         "nb_frame1",  
-         "daviesRawlinson-2014-figDR6.ipynb") }}
-
-
-     - {{ replace_embedded_url(
-      "../../nb_html/publications/TosiEtAl-2015/Tosi_Case1.html",
-            "nb_frame1",  
-            "Tosi_Case1.ipynb") }}
-    - {{ replace_embedded_url(
-      "../../nb_html/publications/TosiEtAl-2015/Tosi_Case2.html",
-           "nb_frame1",  
-           "Tosi_Case2.ipynb") }}
-    - {{ replace_embedded_url(
-      "../../nb_html/publications/TosiEtAl-2015/Tosi_Case3.html",
-          "nb_frame1",  
-          "Tosi_Case3.ipynb") }}
-    - {{ replace_embedded_url(
-      "../../nb_html/publications/TosiEtAl-2015/Tosi_Case4.html",
-         "nb_frame1",  
-         "Tosi_Case4.ipynb") }}
-    - {{ replace_embedded_url(
-      "../../nb_html/publications/TosiEtAl-2015/Tosi_Case5a.html",
-         "nb_frame1",  
-         "Tosi_Case5a.ipynb") }}
-
-    - {{ replace_embedded_url(
-     "../../nb_html/publications/OzBenchEtAl-2008/1_OzBenchEtAl-2008.html",
-           "nb_frame1",  
-           "1_OzBenchEtAl-2008.ipynb") }}
-    - {{ replace_embedded_url(
-     "../../nb_html/publications/OzBenchEtAl-2008/2_OzBenchEtAl-2008-fig3.html",
-          "nb_frame1",  
-          "2_OzBenchEtAl-2008-fig3.ipynb") }}
-
+        {{ nb_mybinder_badge("notebooks/pulications/00_Pulications.ipynb") }}
 
 
 ### Moresi and Solomatov 1995
@@ -68,11 +17,10 @@ a temperature dependent (Frank-Kamenetskii) viscosity and how to record Nusselt 
 
 Moresi, L. N., and V. S. Solomatov (1995), **Numerical investigation of 2d convection with extremely large viscosity variations**, Phys. Fluids, 7, 2154–2162.
 
-???+ note "**Notebook**"
+??? note "**Notebook**"
 
-      <p/> {{ replace_embedded_url("../../nb_html/publications//MoresiSolomatov-1995/MoresiAndSolomatov1995.html",
-                        "nb_frame1",  
-                        "MoresiAndSolomatov1995.ipynb") }}
+    {{ embed_url_changeable("../../nb_html/publications/MoresiSolomatov-1995/MoresiAndSolomatov1995.html", fname="nb_frame_ms1995") }}
+
 
 ---
 
@@ -88,10 +36,7 @@ This notebook reproduces the 2D instantaneous flow model with a composite Newton
 D. Rhodri Davies and Nicholas Rawlinson, **On the origin of recent intraplate volcanism in Australia**. Geology, December 2014, v. 42, p. 1031-1034, doi:10.1130/G36093.1
 
 ??? note "**Notebook**"
-    <p/> {{ replace_embedded_url(
-     "../../nb_html/publications/DaviesRawlinson-2014/daviesRawlinson-2014-figDR6.html",
-           "nb_frame1",  
-           "daviesRawlinson-2014-figDR6.ipynb") }}
+    {{ embed_url_changeable("../../nb_html/publications/DaviesRawlinson-2014/daviesRawlinson-2014-figDR6.html", fname="nb_frame_dr2014") }}
 
 ---
 
@@ -108,27 +53,31 @@ Tosi, Nicola and Stein, Claudia and Noack, Lena and Hüttig, Christian and Maier
 
 
 ??? note "**Notebooks**"
+     <p/>
 
      - {{ replace_embedded_url(
        "../../nb_html/publications/TosiEtAl-2015/Tosi_Case1.html",
-             "nb_frame1",  
+             "nb_frame_tetal2015",  
              "Tosi_Case1.ipynb") }}
      - {{ replace_embedded_url(
        "../../nb_html/publications/TosiEtAl-2015/Tosi_Case2.html",
-            "nb_frame1",  
+            "nb_frame_tetal2015",  
             "Tosi_Case2.ipynb") }}
      - {{ replace_embedded_url(
        "../../nb_html/publications/TosiEtAl-2015/Tosi_Case3.html",
-           "nb_frame1",  
+           "nb_frame_tetal2015",  
            "Tosi_Case3.ipynb") }}
      - {{ replace_embedded_url(
        "../../nb_html/publications/TosiEtAl-2015/Tosi_Case4.html",
-          "nb_frame1",  
+          "nb_frame_tetal2015",  
           "Tosi_Case4.ipynb") }}
      - {{ replace_embedded_url(
        "../../nb_html/publications/TosiEtAl-2015/Tosi_Case5a.html",
-          "nb_frame1",  
+          "nb_frame_tetal2015",  
           "Tosi_Case5a.ipynb") }}
+
+     {{ embed_url_changeable("../../nb_html/publications/TosiEtAl-2015/Tosi_Case1.html", fname="nb_frame_tetal2015") }}
+
 
 ---
 
@@ -145,14 +94,19 @@ OzBench, M.; Regenauer-Lieb, K.; Stegman, D. R.; Morra, G.; Farrington, R.; Hale
 
 ??? note "**Notebooks**"
 
+    <p/>
+
     - {{ replace_embedded_url(
      "../../nb_html/publications/OzBenchEtAl-2008/1_OzBenchEtAl-2008.html",
-           "nb_frame1",  
+           "nb_frame_ozbench2008",  
            "1_OzBenchEtAl-2008.ipynb") }}
     - {{ replace_embedded_url(
      "../../nb_html/publications/OzBenchEtAl-2008/2_OzBenchEtAl-2008-fig3.html",
-          "nb_frame1",  
+          "nb_frame_ozbench2008",  
           "2_OzBenchEtAl-2008-fig3.ipynb") }}
+
+    {{ embed_url_changeable("../../nb_html/publications/OzBenchEtAl-2008/1_OzBenchEtAl-2008.html", fname="nb_frame_ozbench2008") }}
+
 
 
 ---

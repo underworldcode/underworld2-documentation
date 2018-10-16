@@ -5,42 +5,12 @@ that arose from work with Underworld. The examples here demonstrate how to build
 the original papers. Note that these are not exact replication of results from those papers.
 We aim instead to show you examples that you can build on to advance the research.
 
-You can run these notebooks live on [http://www.mybinder.org]( {{    nb_mybinder_location("notebooks/publications/00_Publications.ipynb") }} ). {{ nb_mybinder_badge("notebooks/publications/00_Publications.ipynb") }}
+!!! hint "**Note**"
 
----
+        <p/>Expand the boxes below to read more about each notebook and to view a preview.
+        You can **run** these notebooks live on [http://www.mybinder.org]( {{nb_mybinder_location("notebooks/user_guide/00_Components.ipynb") }} ).
 
-<!-- This embeds the notebook -->
-
-{{ embed_url("../../nb_html/publications/SchellartEtAl-2010/1_SchellartEtAl-Science-2010.html", fname="nb_frame1") }}
-
----
-
-???+ hint "**Preview**"
-
-    <p/>Click on the links below to reload the preview with the relevant notebook. Expand the boxes to read
-    more about each notebook.
-
-
-    - {{ replace_embedded_url(
-      "../../nb_html/publications/SchellartEtAl-2010/1_SchellartEtAl-Science-2010.html",
-            "nb_frame1",  
-            "1_SchellartEtAl-Science-2010.ipynb") }}
-    - {{ replace_embedded_url(
-      "../../nb_html/publications/SchellartEtAl-2010/2_SchellartEtAl-Science-2010-analysis.html",
-           "nb_frame1",  
-           "2_SchellartEtAl-Science-2010-analysis.ipynb") }}
-
-    - {{ replace_embedded_url(
-           "../../nb_html/publications/FarringtonEtAl-2014/FarringtonEtAl-2014.html",
-                 "nb_frame1",  
-                 "FarringtonEtAl-2014.ipynb") }}
-
-
-    - {{ replace_embedded_url(
-    "../../nb_html/publications/DrippingDelamination-BeallEtAl-2017/dripping_or_delamination.html",
-          "nb_frame1",  
-          "dripping_or_delamination.ipynb") }}
-
+        {{ nb_mybinder_badge("notebooks/pulications/00_Pulications.ipynb") }}
 
 
 ### Schellart et al, 2010
@@ -63,13 +33,15 @@ Schellart, W. P. and Stegman, D. R. and Farrington, R. J. and Freeman, J. and Mo
 
      - {{ replace_embedded_url(
        "../../nb_html/publications/SchellartEtAl-2010/1_SchellartEtAl-Science-2010.html",
-             "nb_frame1",  
+             "nb_frame_sch2010",  
              "1_SchellartEtAl-Science-2010.ipynb") }}
      - {{ replace_embedded_url(
        "../../nb_html/publications/SchellartEtAl-2010/2_SchellartEtAl-Science-2010-analysis.html",
-            "nb_frame1",  
+            "nb_frame_sch2010",  
             "2_SchellartEtAl-Science-2010-analysis.ipynb") }}
 
+
+     {{ embed_url_changeable("../../nb_html/publications/SchellartEtAl-2010/1_SchellartEtAl-Science-2010.html", fname="nb_frame_sch2010") }}
 
 ---
 
@@ -87,10 +59,14 @@ Farrington, R. J., L.-N. Moresi, and F. A. Capitanio (2014), **The role of visco
 
 
 ??? note "**Notebook**"
-    - {{ replace_embedded_url(
-    "../../nb_html/publications/FarringtonEtAl-2014/FarringtonEtAl-2014.html",
-          "nb_frame1",  
+
+     <!-- If more are needed, add them here
+     - {{ replace_embedded_url(
+     "../../nb_html/publications/FarringtonEtAl-2014/FarringtonEtAl-2014.html",
+          "nb_frame_rjf2014",  
           "FarringtonEtAl-2014.ipynb") }}
+     -->
+     {{ embed_url_changeable("../../nb_html/publications/FarringtonEtAl-2014/FarringtonEtAl-2014.html", fname="nb_frame_rjf2014") }}
 
 
 ### Beall et al., 2017
@@ -134,7 +110,11 @@ Beall, A. P., L. Moresi, and T. Stern (2017), **Dripping or delamination? A rang
 
 
 ??? note "**Notebook**"
+
+       <!-- If more are needed, add them here
        - {{ replace_embedded_url(
        "../../nb_html/publications/DrippingDelamination-BeallEtAl-2017/dripping_or_delamination.html",
              "nb_frame1",  
              "dripping_or_delamination.ipynb") }}
+       -->
+       {{ embed_url_changeable("../../nb_html/publications/DrippingDelamination-BeallEtAl-2017/dripping_or_delamination.html", fname="nb_frame_beall2017") }}

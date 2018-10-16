@@ -120,7 +120,7 @@ These examples are beginning-to-end walks through sample problems which can be d
       {{embed_url("../../nb_html/examples/2_09_ShearBandsPureShear.html")}}
 
 
-??? note "**Introducting Viscoelasticity**" - 2_11_ViscoelasticityInSimpleShear.ipynb"   
+??? note "**Introducting Viscoelasticity** - 2_11_ViscoelasticityInSimpleShear.ipynb"   
 
     <p/> This notebook reproduces figure 1a of Farrington et al (2014). All material is viscoelastic with equal parameters, differing material indices are prescribed for visualisation purposes. The vertical velocity bc is periodic, the bottom velocity bc is no-slip with a horizontal shear velocity bc applied to the top wall until $t = 1$.  For $t > 1$ the top wall velocity bc is no-slip.
 
@@ -135,7 +135,7 @@ These examples are beginning-to-end walks through sample problems which can be d
     {{embed_url("../../nb_html/examples/2_11_ViscoelasticityInSimpleShear.html")}}
 
 
-??? note "**Rayleigh-Taylor - detailed analysis**" - 2_15_Rayleigh_Taylor_GrowthRate.ipynb"   
+??? note "**Rayleigh-Taylor - detailed analysis** - 2_15_Rayleigh_Taylor_GrowthRate.ipynb"   
 
     <p/> Here we quantify the initial growth-rate of a Rayleigh-Taylor Instability,
     introduced in the previous Rayleigh-Taylor example.
@@ -144,7 +144,7 @@ These examples are beginning-to-end walks through sample problems which can be d
     {{embed_url("../../nb_html/examples/2_15_Rayleigh_Taylor_GrowthRate.html")}}
 
 
-??? note "**Numerical Convergence & analytic solutions**" - 2_19_Analytic_Solutions_2D.ipynb"  
+??? note "**Numerical Convergence & analytic solutions** - 2_19_Analytic_Solutions_2D.ipynb"  
 
     <p/> Underworld provides a set of analytic solutions to Stokes flow problems. In this example, analytic solution objects are used to configure an analogous numerical system. The numerical solution may then be compared to the exact solution (again provided by the analytic solution object). The first part of this file considers a single analytic model and the corresponding numerical solution. We then run a series simulations across different resolutions to extract error convergence information. This second part is repeated for a set of analytic models.
     {{embed_url("../../nb_html/examples/2_19_Analytic_Solutions_2D.html")}}
